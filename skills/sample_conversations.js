@@ -17,7 +17,7 @@ module.exports = controller => {
 
       // create a path for when a user says YES
       convo.addMessage({
-        text: 'How wonderful.'
+        text: 'Well thats nice...'
       }, 'yes_thread')
 
       // create a path for when a user says NO
