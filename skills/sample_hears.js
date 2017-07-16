@@ -48,8 +48,7 @@ module.exports = controller => {
   })
   
   controller.hears([/(\w\w\w\w+?\.\w\w\w\w+?\.\w\w\w\w+)/g], 'direct_message,direct_mention', (bot, message) => {
-            bot.reply(message, '_sigh_')
-      
+		bot.reply(message, 'http://w3w.co/'+message.match)      
   })
 
   /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
