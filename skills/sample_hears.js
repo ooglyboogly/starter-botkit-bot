@@ -68,17 +68,12 @@ var req = http.request(options, function (res) {
   res.on("end", function () {
     var body = Buffer.concat(chunks);
 	var fulltext = body.toString();
-	If (fulltext.indexOf("Invalid") !== -1) {
 	var frontCut = fulltext.substring(fulltext.indexOf("-"));
   var lng = frontCut.substring(0, frontCut.indexOf(","));
   var lat = frontCut.substring(frontCut.indexOf(":")+1)
   lat = lat.substring(0, lat.indexOf("}"));
     bot.reply(message, 'http://waze.to/?ll='+lat+","+lng+"&navigate=yes");
-  bot.reply(message, 'http://www.google.com/maps/place/'+lat+","+lng);
-  } else {
-   bot.reply(message, 'Umm... '+ message.match + ' is not one of the billions of combinations... try again? Dont fail this time!');
-   } 
-
+	bot.reply(message, 'http://www.google.com/maps/place/'+lat+","+lng);
   });
 });
 
