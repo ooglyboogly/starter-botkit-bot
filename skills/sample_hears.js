@@ -48,7 +48,7 @@ module.exports = controller => {
   })
   
   controller.hears([/(\w\w\w\w+?\.\w\w\w\w+?\.\w\w\w\w+)/g], 'ambient', (bot, message) => {
-	  var http = require("https");
+	 /* var http = require("https");
 
 var options = {
   "method": "GET",
@@ -71,9 +71,35 @@ var req = http.request(options, function (res) {
   });
 });
 
-req.end();
+req.end(); */
+
+				var wgs84 = {},
+                W3WData = "index.home.raft";
+            $.ajax({
+                type: "GET",
+                url: "https://api.what3words.com/v2/forward",
+                data: W3WData,
+                success: function(data) {
+                    if (_returnedError(data)) {
+                        wgs84.x = 0;
+                        wgs84.y = 0;
+                    } else {
+                        wgs84.x = data.geometry.lng;
+                        wgs84.y = data.geometry.lat;
+                    }
+                },
+                error: function() {
+                    wgs84.x = 0;
+                    wgs84.y = 0;
+                },
+                dataType: "json",
+                async: false,
+                headers: {
+                    'X-Api-Key': "D99WCQGN"
+                }
+            });
 	  
-		bot.reply(message, 'http://w3w.co/'+message.match)      
+		bot.reply(message, 'http://w3w.co/'+wgs84)      
   })
 
   /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
