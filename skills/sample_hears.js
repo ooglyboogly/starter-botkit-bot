@@ -46,6 +46,11 @@ module.exports = controller => {
       bot.reply(message, 'I will repeat whatever you say.')
     }
   })
+  
+  controller.hears([/(\w\w\w\w+?\.\w\w\w\w+?\.\w\w\w\w+)/g], 'direct_message,direct_mention', (bot, message) => {
+            bot.reply(message, '_sigh_')
+      
+  })
 
   /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
   /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
