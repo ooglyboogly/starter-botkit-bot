@@ -72,7 +72,7 @@ var req = http.request(options, function (res) {
   var lng = frontCut.substring(0, frontCut.indexOf(","));
   var lat = frontCut.substring(frontCut.indexOf(":")+1)
   lat = lat.substring(0, lat.indexOf("}"));
-    bot.reply(message, 'www.ingress.com/intel?ll='+lat+lng);
+    bot.reply(message, 'www.ingress.com/intel?ll='+lat+","+lng);
   });
 });
 
