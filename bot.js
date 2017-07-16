@@ -48,11 +48,7 @@ fs.readdirSync(normalizedPath).forEach(file => {
 // If a trigger is matched, the conversation will automatically fire!
 // You can tie into the execution of the script using the functions
 // controller.studio.before, controller.studio.after and controller.studio.validate
-if (STUDIO_TOKEN) {
-  controller.on('direct_message,direct_mention,mention', (bot, message) {
-      bot.reply(message, 'I experienced an error with a request to Botkit Studio:')}
-} else {
-  console.log('~~~~~~~~~~')
-  console.log('NOTE: Botkit Studio functionality has not been enabled')
-  console.log('To enable, pass in a studio_token parameter with a token from https://studio.botkit.ai/')
+controller.on('direct_message,direct_mention,mention', (bot, message) {
+      bot.reply(message,"Tell me more!");
 }
+
