@@ -72,29 +72,3 @@ if (STUDIO_TOKEN) {
   console.log('NOTE: Botkit Studio functionality has not been enabled')
   console.log('To enable, pass in a studio_token parameter with a token from https://studio.botkit.ai/')
 }
-
-if (STUDIO_TOKEN) {
-  controller.hears(/\w\w\w\w+?\.\w\w\w\w+?\.\w\w\w\w+/g, ['message_received'], function(bot,message) {
-	 bot.reply(message,"Tell me more!")
-    controller.studio.runTrigger(bot, message.text, message.user, message.channel).then(convo => {
-      if (!convo) {
-        // no trigger was matched
-        // If you want your bot to respond to every message,
-        // define a 'fallback' script in Botkit Studio
-        // and uncomment the line below.
-        // controller.studio.run(bot, 'fallback', message.user, message.channel)
-      } else {
-        // set variables here that are needed for EVERY script
-        // use controller.studio.before('script') to set variables specific to a script
-        convo.setVar('current_time', new Date())
-      }
-    }).catch(err => {
-      bot.reply(message, 'I experienced an error with a request to Botkit Studio: ' + err)
-      debug('Botkit Studio: ', err)
-    })
-  })
-} else {
-  console.log('~~~~~~~~~~')
-  console.log('NOTE: Botkit Studio functionality has not been enabled')
-  console.log('To enable, pass in a studio_token parameter with a token from https://studio.botkit.ai/')
-}
