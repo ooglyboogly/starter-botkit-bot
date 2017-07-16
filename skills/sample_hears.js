@@ -54,7 +54,7 @@ var options = {
   "method": "GET",
   "hostname": "api.what3words.com",
   "port": null,
-  "path": "/v2/forward?addr=index.home.raft&key=D99WCQGN&lang=en&format=json&display=full",
+  "path": "/v2/forward?addr="+message.match+"&key=D99WCQGN&lang=en&format=json&display=full",
   "headers": {}
 };
 
