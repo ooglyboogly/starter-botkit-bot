@@ -63,6 +63,7 @@ var req = http.request(options, function (res) {
 
   res.on("data", function (chunk) {
     chunks.push(chunk);
+	bot.reply(message, "Chunk: "+ chunk.toString());
   });
 
   res.on("end", function () {
