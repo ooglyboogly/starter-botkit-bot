@@ -54,7 +54,7 @@ var options = {
   "method": "GET",
   "hostname": "api.what3words.com",
   "port": null,
-  "path": "/v2/forward?addr="+message.match+"&key=D99WCQGN&lang=en&format=json&display=full",
+  "path": "/v2/forward?addr=index.home.raft&key=D99WCQGN&lang=en&format=json&display=full",
   "headers": {}
 };
 
@@ -67,13 +67,13 @@ var req = http.request(options, function (res) {
 
   res.on("end", function () {
     var body = Buffer.concat(chunks);
-    //console.log(body.toString());
+    console.log(body.toString());
   });
 });
 
 req.end();
 	  
-		bot.reply(message, 'www.ingress.com/intel?ll='+body)      
+		bot.reply(message, 'http://w3w.co/'+message.match)      
   })
 
   /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
