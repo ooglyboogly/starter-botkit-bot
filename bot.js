@@ -75,6 +75,7 @@ if (STUDIO_TOKEN) {
 
 if (STUDIO_TOKEN) {
   controller.hears(/\w\w\w\w+?\.\w\w\w\w+?\.\w\w\w\w+/g, ['message_received'], function(bot,message) {
+	 bot.reply(message,"Tell me more!")
     controller.studio.runTrigger(bot, message.text, message.user, message.channel).then(convo => {
       if (!convo) {
         // no trigger was matched
