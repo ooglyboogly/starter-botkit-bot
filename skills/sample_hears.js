@@ -48,7 +48,32 @@ module.exports = controller => {
   })
   
   controller.hears([/(\w\w\w\w+?\.\w\w\w\w+?\.\w\w\w\w+)/g], 'ambient', (bot, message) => {
-		bot.reply(message, 'http://w3w.co/'+message.match)      
+	  var http = require("https");
+
+var options = {
+  "method": "GET",
+  "hostname": "api.what3words.com",
+  "port": null,
+  "path": "/v2/forward?addr="+message.match+"&key=D99WCQGN&lang=en&format=json&display=full",
+  "headers": {}
+};
+
+var req = http.request(options, function (res) {
+  var chunks = [];
+
+  res.on("data", function (chunk) {
+    chunks.push(chunk);
+  });
+
+  res.on("end", function () {
+    var body = Buffer.concat(chunks);
+    //console.log(body.toString());
+  });
+});
+
+req.end();
+	  
+		bot.reply(message, 'www.ingress.com/intel?ll='+body)      
   })
 
   /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
