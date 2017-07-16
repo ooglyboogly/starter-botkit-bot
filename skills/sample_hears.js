@@ -47,48 +47,55 @@ module.exports = controller => {
     }
   })*/
   
-  controller.hears([/(\w\w\w\w+?\.\w\w\w\w+?\.\w\w\w\w+)/g], 'ambient', (bot, message) => {
-	  var http = require("https");
+controller.hears([/(\w\w\w\w+?\.\w\w\w\w+?\.\w\w\w\w+)/g], 'ambient', (bot, message) => {
+	var http = require("https");
+	var options = {
+		"method": "GET",
+		"hostname": "api.what3words.com",
+		"port": null,
+		"path": "/v2/forward?addr="+message.match+"&key=D99WCQGN&lang=en&format=json&display=full&display=terse",
+		"headers": {}
+	};
+	
+	bot.api.users.info({user: message.user}, function(err, info){
+		whodisid = message.user;
+		whodis = info.user.name;
+               JSON.stringify(whodis);         
+	})  
+    bot.api.channels.info({channel: message.channel}, function(err, info){
+		try {
+			whochannel = info.channel.name;
+		} catch (err) {    
+		whochannel = "Private channel or DM";
+		}
+        JSON.stringify(whochannel);
+	})
+	
+	var req = http.request(options, function (res) {
+		var chunks = [];
 
-var options = {
-  "method": "GET",
-  "hostname": "api.what3words.com",
-  "port": null,
-  "path": "/v2/forward?addr="+message.match+"&key=D99WCQGN&lang=en&format=json&display=full&display=terse",
-  "headers": {}
-};
+		res.on("data", function (chunk) {
+			chunks.push(chunk);
+		});
 
-var req = http.request(options, function (res) {
-  var chunks = [];
-
-  res.on("data", function (chunk) {
-    chunks.push(chunk);
-  });
-
-  res.on("end", function () {
-		var body = Buffer.concat(chunks);
-		var fulltext = body.toString();
-	  
-		if (fulltext.indexOf("Invalid") <= 0) {
+		res.on("end", function () {
+			var body = Buffer.concat(chunks);
+			var fulltext = body.toString();
+			if (fulltext.indexOf("Invalid") <= 0) {
 				var frontCut = fulltext.substring(fulltext.indexOf("-"));
 				var lng = frontCut.substring(0, frontCut.indexOf(","));
 				var lat = frontCut.substring(frontCut.indexOf(":")+1)
 				lat = lat.substring(0, lat.indexOf("}"));
 				bot.reply(message, 'http://waze.to/?ll='+lat+","+lng+"&navigate=yes");
 				bot.reply(message, 'http://www.google.com/maps/place/'+lat+","+lng);		
-		} else 	{
+			} else 	{
 				bot.reply(message, 'Umm...'+message.match+' does not seem to worky... how abouts you try again? Dont fail this time...');
-				}
-    
-	
-	
-  });
-});
-
-req.end();
-	  
-		//bot.reply(message, 'http://w3w.co/'+message.match)      
-  })
+			}
+		});
+	});
+	req.end();
+	//bot.reply(message, 'http://w3w.co/'+message.match)      
+})
 
   /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
   /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
