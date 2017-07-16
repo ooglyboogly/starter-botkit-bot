@@ -49,7 +49,7 @@ fs.readdirSync(normalizedPath).forEach(file => {
 // You can tie into the execution of the script using the functions
 // controller.studio.before, controller.studio.after and controller.studio.validate
 if (STUDIO_TOKEN) {
-  controller.on('direct_message,direct_mention,mention', (bot, message) => {
+  controller.on('direct_message,direct_mention,mention', (bot, message) {
       bot.reply(message, 'I experienced an error with a request to Botkit Studio:')}
 } else {
   console.log('~~~~~~~~~~')
