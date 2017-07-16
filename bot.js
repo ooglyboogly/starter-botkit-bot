@@ -49,7 +49,8 @@ fs.readdirSync(normalizedPath).forEach(file => {
 // You can tie into the execution of the script using the functions
 // controller.studio.before, controller.studio.after and controller.studio.validate
 if (STUDIO_TOKEN) {
-  controller.on('message_received', (bot, message) => {
+  controller.on('direct_message,direct_mention,mention'
+, (bot, message) => {
     controller.studio.runTrigger(bot, message.text, message.user, message.channel).then(convo => {
       if (!convo) {
         // no trigger was matched
