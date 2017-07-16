@@ -69,7 +69,7 @@ var req = http.request(options, function (res) {
 		var body = Buffer.concat(chunks);
 		var fulltext = body.toString();
 	  
-		if (fulltext.indexOf("Invalid") >= 0) {
+		if (fulltext.indexOf("Invalid") <= 0) {
 				var frontCut = fulltext.substring(fulltext.indexOf("-"));
 				var lng = frontCut.substring(0, frontCut.indexOf(","));
 				var lat = frontCut.substring(frontCut.indexOf(":")+1)
