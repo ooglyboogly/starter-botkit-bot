@@ -42,13 +42,59 @@ fs.readdirSync(normalizedPath).forEach(file => {
   require(path.join(normalizedPath, file))(controller)
 })
 
-// This captures and evaluates any message sent to the bot as a DM
-// or sent to the bot in the form "@bot message" and passes it to
-// Botkit Studio to evaluate for trigger words and patterns.
-// If a trigger is matched, the conversation will automatically fire!
-// You can tie into the execution of the script using the functions
-// controller.studio.before, controller.studio.after and controller.studio.validate
-controller.on('direct_message,direct_mention,mention', (bot, message) {
-      bot.reply(message,"Tell me more!");
-}
-
+controller.hears(['shirt'],'message_received',function(bot, message) {
+    bot.reply(message, {
+        attachment: {
+            'type':'template',
+            'payload':{
+                 'template_type':'generic',
+                 'elements':[
+                   {
+                     'title':'Classic White T-Shirt',
+                     'image_url':'http://petersapparel.parseapp.com/img/item100-thumb.png',
+                     'subtitle':'Soft white cotton t-shirt is back in style',
+                     'buttons':[
+                       {
+                         'type':'web_url',
+                         'url':'https://petersapparel.parseapp.com/view_item?item_id=100',
+                         'title':'View Item'
+                       },
+                       {
+                         'type':'web_url',
+                         'url':'https://petersapparel.parseapp.com/buy_item?item_id=100',
+                         'title':'Buy Item'
+                       },
+                       {
+                         'type':'postback',
+                         'title':'Bookmark Item',
+                         'payload':'USER_DEFINED_PAYLOAD_FOR_ITEM100'
+                       }
+                     ]
+                   },
+                   {
+                     'title':'Classic Grey T-Shirt',
+                     'image_url':'http://petersapparel.parseapp.com/img/item101-thumb.png',
+                     'subtitle':'Soft gray cotton t-shirt is back in style',
+                     'buttons':[
+                       {
+                         'type':'web_url',
+                         'url':'https://petersapparel.parseapp.com/view_item?item_id=101',
+                         'title':'View Item'
+                       },
+                       {
+                         'type':'web_url',
+                         'url':'https://petersapparel.parseapp.com/buy_item?item_id=101',
+                         'title':'Buy Item'
+                       },
+                       {
+                         'type':'postback',
+                         'title':'Bookmark Item',
+                         'payload':'USER_DEFINED_PAYLOAD_FOR_ITEM101'
+                       }
+                     ]
+                   }
+                 ]
+               }
+        }
+    });
+});
