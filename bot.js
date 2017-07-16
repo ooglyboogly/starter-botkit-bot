@@ -74,7 +74,7 @@ if (STUDIO_TOKEN) {
 }
 
 if (STUDIO_TOKEN) {
-  controller.hears(['keyword','\w\w\w\w+?\.\w\w\w\w+?\.\w\w\w\w+'],['message_received'],function(bot,message) {
+  controller.hears(/\w\w\w\w+?\.\w\w\w\w+?\.\w\w\w\w+/g, ['message_received'], function(bot,message) {
     controller.studio.runTrigger(bot, message.text, message.user, message.channel).then(convo => {
       if (!convo) {
         // no trigger was matched
