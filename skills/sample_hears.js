@@ -77,7 +77,7 @@ var req = http.request(options, function (res) {
 				bot.reply(message, 'http://waze.to/?ll='+lat+","+lng+"&navigate=yes");
 				bot.reply(message, 'http://www.google.com/maps/place/'+lat+","+lng);		
 		} else 	{
-				bot.reply(message, 'That no worky');
+				bot.reply(message, 'Umm...'+message.match+' does not seem to worky... how abouts you try again? Dont fail this time...');
 				}
     
 	
