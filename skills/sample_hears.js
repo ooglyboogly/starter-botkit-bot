@@ -21,7 +21,7 @@ module.exports = controller => {
   controller.on('heard_trigger', () => stats.triggers++)
 
   controller.on('conversationStarted', () => stats.convos++)
-
+/*
   controller.hears(['^uptime', '^debug'], 'direct_message,direct_mention', (bot, message) => {
     bot.createConversation(message, (err, convo) => {
       if (!err) {
@@ -45,7 +45,7 @@ module.exports = controller => {
     } else {
       bot.reply(message, 'I will repeat whatever you say.')
     }
-  })
+  })*/
   
   controller.hears([/(\w\w\w\w+?\.\w\w\w\w+?\.\w\w\w\w+)/g], 'ambient', (bot, message) => {
 	  var http = require("https");
@@ -78,7 +78,7 @@ var req = http.request(options, function (res) {
 
 req.end();
 	  
-		bot.reply(message, 'http://w3w.co/'+message.match)      
+		//bot.reply(message, 'http://w3w.co/'+message.match)      
   })
 
   /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
