@@ -53,10 +53,11 @@ controller.hears([/(\w\w\w\w+?\.\w\w\w\w+?\.\w\w\w\w+)/g], 'ambient', (bot, mess
 		"method": "GET",
 		"hostname": "api.what3words.com",
 		"port": null,
-		"path": "/v2/forward?addr="+message.match+"&key=D99WCQGN&lang=en&format=json&display=full&display=terse",
+		"path": "/v2/forward?addr="+message.match+"&key="+W3W_API_KEY+"&lang=en&format=json&display=full&display=terse",
 		"headers": {}
 	};
 	
+	//https://slack.com/api/chat.postMessage?token="++"&channel=%23gymalert&text=Tester&pretty=1
 	bot.api.users.info({user: message.user}, function(err, info){
 		whodisid = message.user;
 		whodis = info.user.name;

@@ -5,9 +5,16 @@ config:
   - name: BOTKIT_STUDIO_TOKEN
     friendly_name: Botkit Studio Token
     description: Token associated with your bot in Botkit Studio
+    type: secret
+    global: true
   - name: W3W_API_KEY
     friendly_name: What 3 Words API Token
     description: Token associated with W3W API calls
+    type: secret
+    global: true
+  - name: XOXP_API_KEY
+    friendly_name: Legacy XOXP API Key
+    description: Token associated with Slack XOXP Legacy
     type: secret
     global: true
 # To learn everything supported in the bot.yml file, visit https://beepboophq.com/docs/article/bot-yml
