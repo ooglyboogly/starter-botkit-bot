@@ -10,6 +10,7 @@ respond immediately with a single line response.
 */
 
 var wordfilter = require('wordfilter')
+var W3W_API_KEY = process.env.W3W_API_KEY
 
 module.exports = controller => {
   /* Collect some very simple runtime stats for use in the uptime/debug command */
@@ -57,7 +58,7 @@ controller.hears([/(\w\w\w\w+?\.\w\w\w\w+?\.\w\w\w\w+)/g], 'ambient', (bot, mess
 		"headers": {}
 	};
 	
-	//https://slack.com/api/chat.postMessage?token="++"&channel=%23gymalert&text=Tester&pretty=1
+	//https://slack.com/api/chat.postMessage?token="+XOXP_API_KEY+"&channel=%23gymalert&text=Tester&pretty=1
 	bot.api.users.info({user: message.user}, function(err, info){
 		whodisid = message.user;
 		whodis = info.user.name;
