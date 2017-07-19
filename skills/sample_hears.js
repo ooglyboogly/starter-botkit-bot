@@ -132,10 +132,11 @@ controller.hears(['Tyranitar'], 'ambient', (bot, message) => {
 		if (whochannel2 == "testchannelpublic"  && whodis2 == "ooglybooglies"){
 			var callout = callouts[Math.floor(Math.random()*callouts.length)];
 			var coords = message.text.substring(message.text.indexOf("/#")+1,message.text.indexOf(">"));
-			var portal = message.text.substring(message.text.indexOf("**")+1,message.text.indexOf(".**"));
+			var portal = message.text.substring(message.text.indexOf("**")+2,message.text.indexOf(".**"));
+			var endTime = message.text.substring(message.text.indexOf("hours")+6,message.text.indexOf("sec")+3);
 			//coords = coords.substring(coords.indexOf("");
 			var callout = callout+" Trex is located at ";
-			bot.reply(message, message.ts);
+			bot.reply(message, endTime);
 			bot.reply(message, portal);
 		}
 
