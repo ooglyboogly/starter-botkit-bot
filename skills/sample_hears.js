@@ -104,7 +104,7 @@ controller.hears(['heyOogly'], 'ambient', (bot, message) => {
 		var whodis2 = 'empty'
 		var whochannel2 = 'empty'
 	//https://slack.com/api/chat.postMessage?token="+XOXP_API_KEY+"&channel=%23gymalert&text=Tester&pretty=1
-	Function getUserAndChannel(callback){
+	function getUserAndChannel(callback){
 	bot.api.users.info({user: message.user}, function(err, info){
 		whodisid2 = message.user;
 		whodis2 = info.user.name;
