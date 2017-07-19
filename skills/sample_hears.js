@@ -153,7 +153,7 @@ controller.hears(['Tyranitar'], 'ambient', (bot, message) => {
 					var body = Buffer.concat(chunks);
 					var returned = body.toString();
 					var address = returned.substring(returned.indexOf("formatted_address")+22,returned.indexOf("geometry")-3);
-					bot.reply(message, address);
+					bot.reply(message, returned);
 				});
 			});
 		req.end();
