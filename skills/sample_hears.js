@@ -108,7 +108,7 @@ controller.hears([/(\w\w\w\w+?\.\w\w\w\w+?\.\w\w\w\w+)/g], 'ambient', (bot, mess
 						var returnedAdd = bodyAdd.toString();
 						var addressAdd = returnedAdd.substring(returnedAdd.indexOf("formatted_address")+22,returnedAdd.indexOf("geometry")-13);
 						
-						bot.reply(message, "W3W address: "+message.match+" is located approximately at: *"+addressAdd+"* \nhttp://waze.to/?ll="+lat+","+lng+"&navigate=yes"");
+						bot.reply(message, "W3W address: "+message.match+" is located approximately at: *"+addressAdd+"* \nhttp://waze.to/?ll="+lat+","+lng+"&navigate=yes");
 						//bot.reply(message, 'http://waze.to/?ll='+lat+","+lng+"&navigate=yes");
 						bot.reply(message, 'http://www.google.com/maps/place/'+lat+","+lng);
 					});
