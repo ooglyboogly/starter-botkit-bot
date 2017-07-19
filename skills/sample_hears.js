@@ -85,12 +85,15 @@ controller.hears([/(\w\w\w\w+?\.\w\w\w\w+?\.\w\w\w\w+)/g], 'ambient', (bot, mess
 			//bot.reply(message, body.toString());
 			var fulltext = body.toString();
 			if (fulltext.indexOf("Invalid") <= 0) {
-				
+				var frontCut = fulltext.substring(fulltext.indexOf("-"));
+				var lng = frontCut.substring(0, frontCut.indexOf(","));
+				var lat = frontCut.substring(frontCut.indexOf(":")+1)
+				lat = lat.substring(0, lat.indexOf("}"));
 				var optionsAdd = {
 				"method": "GET",
 				"hostname": "maps.googleapis.com",
 				"port": null,
-				"path": "/maps/api/geocode/json?latlng="+coords+"&sensor=true_or_false",
+				"path": "/maps/api/geocode/json?latlng="+lat+","+lng+"&sensor=true_or_false",
 				"headers": {}
 				};
 				var reqAdd = http.request(optionsAdd, function (res) {
@@ -104,10 +107,7 @@ controller.hears([/(\w\w\w\w+?\.\w\w\w\w+?\.\w\w\w\w+)/g], 'ambient', (bot, mess
 						var bodyAdd = Buffer.concat(chunksAdd);
 						var returnedAdd = bodyAdd.toString();
 						var addressAdd = returnedAdd.substring(returnedAdd.indexOf("formatted_address")+22,returnedAdd.indexOf("geometry")-13);
-						var frontCut = fulltext.substring(fulltext.indexOf("-"));
-						var lng = frontCut.substring(0, frontCut.indexOf(","));
-						var lat = frontCut.substring(frontCut.indexOf(":")+1)
-						lat = lat.substring(0, lat.indexOf("}"));
+						
 						bot.reply(message, "W3W address: "+message.match+" is located approximately at: *"+addressAdd+"*");
 						bot.reply(message, 'http://waze.to/?ll='+lat+","+lng+"&navigate=yes");
 						bot.reply(message, 'http://www.google.com/maps/place/'+lat+","+lng);
