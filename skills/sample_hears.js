@@ -100,16 +100,18 @@ controller.hears([/(\w\w\w\w+?\.\w\w\w\w+?\.\w\w\w\w+)/g], 'ambient', (bot, mess
 })
 
 controller.hears(['heyOogly'], 'ambient', (bot, message) => {
-		
+		var whodisid = 'empty'
+		var whodis = 'empty'
+		var whochannel = 'empty'
 	//https://slack.com/api/chat.postMessage?token="+XOXP_API_KEY+"&channel=%23gymalert&text=Tester&pretty=1
 	bot.api.users.info({user: message.user}, function(err, info){
-		var whodisid = message.user;
-		var whodis = info.user.name;
+		whodisid = message.user;
+		whodis = info.user.name;
                JSON.stringify(whodis);         
 	})  
     bot.api.channels.info({channel: message.channel}, function(err, info){
 		try {
-			var whochannel = info.channel.name;
+			whochannel = info.channel.name;
 		} catch (err) {    
 		whochannel = "Private channel or DM";
 		}
