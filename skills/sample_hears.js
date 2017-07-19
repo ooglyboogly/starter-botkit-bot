@@ -117,10 +117,12 @@ controller.hears(['heyOogly'], 'ambient', (bot, message) => {
     bot.api.channels.info({channel: message.channel}, function(err, info){
 		try {
 			whochannel2 = info.channel.name;
-				bot.reply(message, 'Who is4: '+ whodisid2 + '  Who is it4:  '+whodis2+'  What channel4:  '+whochannel2);
+			bot.reply(message, 'Who is4: '+ whodisid2 + '  Who is it4:  '+whodis2+'  What channel4:  '+whochannel2);
 
 		} catch (err) {    
-		whochannel2 = "Private channel or DM";
+			whochannel2 = "Private channel or DM";
+						bot.reply(message, 'Who is6: '+ whodisid2 + '  Who is it6:  '+whodis2+'  What channel6:  '+whochannel2);
+
 		}
         JSON.stringify(whochannel2);
 	})
