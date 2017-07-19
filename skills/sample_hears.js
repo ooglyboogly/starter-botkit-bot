@@ -134,7 +134,7 @@ controller.hears(['Tyranitar'], 'ambient', (bot, message) => {
 			var coords = message.toString().substring(message.toString()	.indexOf("#")+1);
 			//coords = coords.substring(coords.indexOf("");
 			var callout = callout+" Trex is located at ";
-			bot.reply(message, message.toString());
+			bot.reply(message, message.text);
 			bot.reply(message, callout);
 		}
 
