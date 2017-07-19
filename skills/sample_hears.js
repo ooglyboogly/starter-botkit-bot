@@ -104,6 +104,7 @@ controller.hears(['heyOogly'], 'ambient', (bot, message) => {
 		var whodis2 = 'empty'
 		var whochannel2 = 'empty'
 	//https://slack.com/api/chat.postMessage?token="+XOXP_API_KEY+"&channel=%23gymalert&text=Tester&pretty=1
+	Function getUserAndChannel(callback){
 	bot.api.users.info({user: message.user}, function(err, info){
 		whodisid2 = message.user;
 		whodis2 = info.user.name;
@@ -127,8 +128,16 @@ controller.hears(['heyOogly'], 'ambient', (bot, message) => {
 		}
         JSON.stringify(whochannel2);
 	})
-	bot.reply(message, 'Who is7: '+ whodisid2 + '  Who is it7:  '+whodis2+'  What channel7:  '+whochannel2);
-	
+	callback()
+	}
+	function evaluate () {
+		bot.reply(message, 'Who is7: '+ whodisid2 + '  Who is it7:  '+whodis2+'  What channel7:  '+whochannel2);
+
+	}
+	bot.reply(message, 'Who is8: '+ whodisid2 + '  Who is it8:  '+whodis2+'  What channel8:  '+whochannel2);
+		getUserAndChannel(evaluate);
+	bot.reply(message, 'Who is9: '+ whodisid2 + '  Who is it9:  '+whodis2+'  What channel9:  '+whochannel2);
+
 	 
 })
 
