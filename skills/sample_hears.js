@@ -100,18 +100,18 @@ controller.hears([/(\w\w\w\w+?\.\w\w\w\w+?\.\w\w\w\w+)/g], 'ambient', (bot, mess
 })
 
 controller.hears(['heyOogly'], 'ambient', (bot, message) => {
-		var whodisid2 = 'empty'
-		var whodis2 = 'empty'
-		var whochannel2 = 'empty'
+	var whodisid2 = 'empty'
+	var whodis2 = 'empty'
+	var whochannel2 = 'empty'
 	//https://slack.com/api/chat.postMessage?token="+XOXP_API_KEY+"&channel=%23gymalert&text=Tester&pretty=1
 	function getUserAndChannel(callback){
-	bot.api.users.info({user: message.user}, function(err, info){
-		whodisid2 = message.user;
-		whodis2 = info.user.name;
-		bot.reply(message, 'Who is: '+ whodisid2 + '  Who is it:  '+whodis2);
-               JSON.stringify(whodis2);    
-		bot.reply(message, 'Who is2: '+ whodisid2 + '  Who is it2:  '+whodis2);
-		bot.reply(message, 'Who is3: '+ whodisid2 + '  Who is it3:  '+whodis2+'  What channel3:  '+whochannel2);
+		bot.api.users.info({user: message.user}, function(err, info){
+			whodisid2 = message.user;
+			whodis2 = info.user.name;
+			bot.reply(message, 'Who is: '+ whodisid2 + '  Who is it:  '+whodis2);
+			JSON.stringify(whodis2);    
+			bot.reply(message, 'Who is2: '+ whodisid2 + '  Who is it2:  '+whodis2);
+			bot.reply(message, 'Who is3: '+ whodisid2 + '  Who is it3:  '+whodis2+'  What channel3:  '+whochannel2);
 
 			   
 	})
@@ -123,19 +123,20 @@ controller.hears(['heyOogly'], 'ambient', (bot, message) => {
 
 		} catch (err) {    
 			whochannel2 = "Private channel or DM";
-						bot.reply(message, 'Who is6: '+ whodisid2 + '  Who is it6:  '+whodis2+'  What channel6:  '+whochannel2);
+			bot.reply(message, 'Who is6: '+ whodisid2 + '  Who is it6:  '+whodis2+'  What channel6:  '+whochannel2);
 
 		}
         JSON.stringify(whochannel2);
+		callback()
+
 	})
-	callback()
 	}
 	function evaluate () {
 		bot.reply(message, 'Who is7: '+ whodisid2 + '  Who is it7:  '+whodis2+'  What channel7:  '+whochannel2);
 
 	}
 	bot.reply(message, 'Who is8: '+ whodisid2 + '  Who is it8:  '+whodis2+'  What channel8:  '+whochannel2);
-		getUserAndChannel(evaluate);
+	getUserAndChannel(evaluate);
 	bot.reply(message, 'Who is9: '+ whodisid2 + '  Who is it9:  '+whodis2+'  What channel9:  '+whochannel2);
 
 	 
