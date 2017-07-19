@@ -134,6 +134,31 @@ controller.hears(['Tyranitar'], 'ambient', (bot, message) => {
 			var coords = message.text.substring(message.text.indexOf("/#")+1,message.text.indexOf(">"));
 			var portal = message.text.substring(message.text.indexOf("**")+2,message.text.indexOf(".**"));
 			var endTime = message.text.substring(message.text.indexOf("hours")+6,message.text.indexOf("sec")+3);
+			var http = require("https");
+			var options = {
+				"method": "GET",
+				"hostname": "maps.googleapis.com",
+				"port": null,
+				"path": "maps/api/geocode/json?latlng="+coords+"&sensor=true_or_false",
+				"headers": {}
+			};
+			var req = http.request(options, function (res) {
+				var chunks = [];
+
+				res.on("data", function (chunk) {
+					chunks.push(chunk);
+				});
+
+				res.on("end", function () {
+					var body = Buffer.concat(chunks);
+					var returned = body.toString();
+					var address = returned.substring(returned.indexOf("formatted_address")+22,returned.indexOf("geometry")-3);
+					bot.reply(message, address);
+				});
+			});
+		req.end();
+			//http://maps.googleapis.com/maps/api/geocode/json?latlng=29.92344,-90.088038&sensor=true_or_false
+			//formatted_address" : "
 			//coords = coords.substring(coords.indexOf("");
 			var callout = callout+" Trex is located at ";
 			bot.reply(message, endTime);
