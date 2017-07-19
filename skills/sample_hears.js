@@ -103,6 +103,7 @@ controller.hears(['heyOogly'], 'ambient', (bot, message) => {
 	var whodisid2 = 'empty'
 	var whodis2 = 'empty'
 	var whochannel2 = 'empty'
+	var callouts = ["Hey there, are you looking for a Tyranitar? I think i found one!!","Drop what you are doing (unless you're holding a baby? no still do it)! There is a Tyranitar!","T-t-t-t-tranitarrrrrrr! Yup, a Tyranitar has cracked. Go get em!"];
 	//https://slack.com/api/chat.postMessage?token="+XOXP_API_KEY+"&channel=%23gymalert&text=Tester&pretty=1
 	function getUserAndChannel(callback){
 		bot.api.users.info({user: message.user}, function(err, info){
@@ -127,8 +128,9 @@ controller.hears(['heyOogly'], 'ambient', (bot, message) => {
 	}
 	function evaluate () {
 		if (whochannel2 == "testchannelpublic"  && whodis2 == "ooglybooglies"){
+			var callout = items[Math.floor(Math.random()*callouts.length)];
 			bot.reply(message, 'Who is7: '+ whodisid2 + '  Who is it7:  '+whodis2+'  What channel7:  '+whochannel2);
-
+			bot.reply(message, callout);
 		}
 
 	}
