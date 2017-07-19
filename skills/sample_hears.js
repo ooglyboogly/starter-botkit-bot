@@ -114,6 +114,7 @@ controller.hears(['heyOogly'], 'ambient', (bot, message) => {
 
 			   
 	})
+	bot.reply(message, 'Who is7: '+ whodisid2 + '  Who is it7:  '+whodis2+'  What channel7:  '+whochannel2);
     bot.api.channels.info({channel: message.channel}, function(err, info){
 		try {
 			whochannel2 = info.channel.name;
