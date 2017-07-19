@@ -131,11 +131,12 @@ controller.hears(['Tyranitar'], 'ambient', (bot, message) => {
 	function evaluate () {
 		if (whochannel2 == "testchannelpublic"  && whodis2 == "ooglybooglies"){
 			var callout = callouts[Math.floor(Math.random()*callouts.length)];
-			var coords = message.text.substring(message.text.indexOf("#")+1,message.text.indexOf(">"));
+			var coords = message.text.substring(message.text.indexOf("/#")+1,message.text.indexOf(">"));
+			var portal = message.text.substring(message.text.indexOf("**")+1,message.text.indexOf(".**"));
 			//coords = coords.substring(coords.indexOf("");
 			var callout = callout+" Trex is located at ";
-			bot.reply(message, coords);
-			bot.reply(message, callout);
+			bot.reply(message, message.ts);
+			bot.reply(message, portal);
 		}
 
 	}
