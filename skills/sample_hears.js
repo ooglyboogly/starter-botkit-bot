@@ -100,16 +100,16 @@ controller.hears([/(\w\w\w\w+?\.\w\w\w\w+?\.\w\w\w\w+)/g], 'ambient', (bot, mess
 })
 
 controller.hears(['heyOogly'], 'ambient', (bot, message) => {
-		var whodisid = 'empty'
-		var whodis = 'empty'
-		var whochannel = 'empty'
+		var whodisid2 = 'empty'
+		var whodis2 = 'empty'
+		var whochannel2 = 'empty'
 	//https://slack.com/api/chat.postMessage?token="+XOXP_API_KEY+"&channel=%23gymalert&text=Tester&pretty=1
 	bot.api.users.info({user: message.user}, function(err, info){
-		whodisid = message.user;
-		whodis = info.user.name;
-		bot.reply(message, 'Who is: '+ whodisid + '  Who is it:  '+whodis);
-               JSON.stringify(whodis);    
-		bot.reply(message, 'Who is2: '+ whodisid + '  Who is it2:  '+whodis);
+		whodisid2 = message.user;
+		whodis2 = info.user.name;
+		bot.reply(message, 'Who is: '+ whodisid2 + '  Who is it:  '+whodis2);
+               JSON.stringify(whodis2);    
+		bot.reply(message, 'Who is2: '+ whodisid2 + '  Who is it2:  '+whodis2);
 			   
 	})  
     bot.api.channels.info({channel: message.channel}, function(err, info){
@@ -120,7 +120,7 @@ controller.hears(['heyOogly'], 'ambient', (bot, message) => {
 		}
         JSON.stringify(whochannel);
 	})
-	bot.reply(message, 'Who is3: '+ whodisid + '  Who is it3:  '+whodis+'  What channel3:  '+whochannel);
+	bot.reply(message, 'Who is3: '+ whodisid2 + '  Who is it3:  '+whodis2+'  What channel3:  '+whochannel);
 	
 	 
 })
