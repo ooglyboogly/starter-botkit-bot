@@ -126,7 +126,7 @@ controller.hears(['heyOogly'], 'ambient', (bot, message) => {
 	})
 	}
 	function evaluate () {
-		if (whochannel2 == "testchannelpublic"  && whodis2 != "ooglybooglies"){
+		if (whochannel2 == "testchannelpublic"  && whodis2 == "ooglybooglies"){
 			bot.reply(message, 'Who is7: '+ whodisid2 + '  Who is it7:  '+whodis2+'  What channel7:  '+whochannel2);
 
 		}
