@@ -59,7 +59,7 @@ controller.hears([/(\w\w\w\w+?\.\w\w\w\w+?\.\w\w\w\w+)/g], 'ambient', (bot, mess
 	};
 	
 	//https://slack.com/api/chat.postMessage?token="+XOXP_API_KEY+"&channel=%23gymalert&text=Tester&pretty=1
-	bot.api.users.info({user: message.user}, function(err, info){
+	/*bot.api.users.info({user: message.user}, function(err, info){
 		var whodisid = message.user;
 		var whodis = info.user.name;
                JSON.stringify(whodis);         
@@ -71,7 +71,7 @@ controller.hears([/(\w\w\w\w+?\.\w\w\w\w+?\.\w\w\w\w+)/g], 'ambient', (bot, mess
 		var whochannel = "Private channel or DM";
 		}
         JSON.stringify(whochannel);
-	})
+	}) */
 	
 	var req = http.request(options, function (res) {
 		var chunks = [];
@@ -82,6 +82,7 @@ controller.hears([/(\w\w\w\w+?\.\w\w\w\w+?\.\w\w\w\w+)/g], 'ambient', (bot, mess
 
 		res.on("end", function () {
 			var body = Buffer.concat(chunks);
+			bot.reply(message, body.toString();
 			var fulltext = body.toString();
 			if (fulltext.indexOf("Invalid") <= 0) {
 				var frontCut = fulltext.substring(fulltext.indexOf("-"));
@@ -130,7 +131,7 @@ controller.hears(['heyOogly'], 'ambient', (bot, message) => {
 	function evaluate () {
 		if (whochannel2 == "testchannelpublic"  && whodis2 == "ooglybooglies"){
 			var callout = callouts[Math.floor(Math.random()*callouts.length)];
-			bot.reply(message, 'Who is7: '+ whodisid2 + '  Who is it7:  '+whodis2+'  What channel7:  '+whochannel2);
+			bot.reply(message, message);
 			bot.reply(message, callout);
 		}
 
