@@ -130,7 +130,7 @@ controller.hears(['Tyranitar'], 'ambient', (bot, message) => {
 	}
 	function evaluate () {
 		if (whochannel2 == "testchannelpublic"  && whodis2 == "ooglybooglies"){
-			var callout = callouts[Math.floor(Math.random()*callouts.length)];
+			
 			var coords = message.text.substring(message.text.indexOf("/#")+2,message.text.indexOf(">"));
 			var portal = message.text.substring(message.text.indexOf("**")+2,message.text.indexOf(".**"));
 			var endTime = message.text.substring(message.text.indexOf("hours")+6,message.text.indexOf("sec")+3);
@@ -152,7 +152,8 @@ controller.hears(['Tyranitar'], 'ambient', (bot, message) => {
 				res.on("end", function () {
 					var body = Buffer.concat(chunks);
 					var returned = body.toString();
-					var address = returned.substring(returned.indexOf("formatted_address")+22,returned.indexOf("geometry")-5);
+					var address = returned.substring(returned.indexOf("formatted_address")+22,returned.indexOf("geometry")-13);
+					var callout = callouts[Math.floor(Math.random()*callouts.length)];
 					var callout = callout+" Trex is located at "+portal+" gym and will end in approx:  "+endTime+"  The nearest street address is:  "+address+"  You can Waze to it using: "+'http://waze.to/?ll='+coords+"&navigate=yes"+"  or Google Maps:  "+'http://www.google.com/maps/place/'+coords;
 					bot.reply(message, endTime);
 					bot.reply(message, portal);
