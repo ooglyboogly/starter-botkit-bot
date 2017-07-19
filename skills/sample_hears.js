@@ -155,6 +155,7 @@ controller.hears(['Tyranitar'], 'ambient', (bot, message) => {
 					var address = returned.substring(returned.indexOf("formatted_address")+22,returned.indexOf("geometry")-3);
 					bot.reply(message, returned);
 					bot.reply(message, address);
+					bot.reply(message, "/maps/api/geocode/json?latlng="+coords+"&sensor=true_or_false");
 				});
 			});
 		req.end();
