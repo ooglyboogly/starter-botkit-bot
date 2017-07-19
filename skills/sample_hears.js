@@ -60,15 +60,15 @@ controller.hears([/(\w\w\w\w+?\.\w\w\w\w+?\.\w\w\w\w+)/g], 'ambient', (bot, mess
 	
 	//https://slack.com/api/chat.postMessage?token="+XOXP_API_KEY+"&channel=%23gymalert&text=Tester&pretty=1
 	bot.api.users.info({user: message.user}, function(err, info){
-		whodisid = message.user;
-		whodis = info.user.name;
+		var whodisid = message.user;
+		var whodis = info.user.name;
                JSON.stringify(whodis);         
 	})  
     bot.api.channels.info({channel: message.channel}, function(err, info){
 		try {
 			whochannel = info.channel.name;
 		} catch (err) {    
-		whochannel = "Private channel or DM";
+		var whochannel = "Private channel or DM";
 		}
         JSON.stringify(whochannel);
 	})
@@ -103,13 +103,13 @@ controller.hears(['heyOogly'], 'ambient', (bot, message) => {
 		
 	//https://slack.com/api/chat.postMessage?token="+XOXP_API_KEY+"&channel=%23gymalert&text=Tester&pretty=1
 	bot.api.users.info({user: message.user}, function(err, info){
-		whodisid = message.user;
-		whodis = info.user.name;
+		var whodisid = message.user;
+		var whodis = info.user.name;
                JSON.stringify(whodis);         
 	})  
     bot.api.channels.info({channel: message.channel}, function(err, info){
 		try {
-			whochannel = info.channel.name;
+			var whochannel = info.channel.name;
 		} catch (err) {    
 		whochannel = "Private channel or DM";
 		}
