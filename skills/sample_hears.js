@@ -152,19 +152,21 @@ controller.hears(['Tyranitar'], 'ambient', (bot, message) => {
 				res.on("end", function () {
 					var body = Buffer.concat(chunks);
 					var returned = body.toString();
-					var address = returned.substring(returned.indexOf("formatted_address")+22,returned.indexOf("geometry")-3);
-					bot.reply(message, returned);
+					var address = returned.substring(returned.indexOf("formatted_address")+22,returned.indexOf("geometry")-5);
+					var callout = callout+" Trex is located at "+portal+" gym and will end in approx:  "+endTime+"  The nearest street address is:  "+address+"  You can Waze to it using: "+'http://waze.to/?ll='+coords+"&navigate=yes"+"  or Google Maps:  "+'http://www.google.com/maps/place/'+coords;
+					bot.reply(message, endTime);
+					bot.reply(message, portal);
 					bot.reply(message, address);
-					bot.reply(message, "/maps/api/geocode/json?latlng="+coords+"&sensor=true_or_false");
+					bot.reply(message, callout);
+					bot.reply(message, 'http://waze.to/?ll='+coords+"&navigate=yes");
+					bot.reply(message, 'http://www.google.com/maps/place/'+coords);
 				});
 			});
 		req.end();
 			//http://maps.googleapis.com/maps/api/geocode/json?latlng=29.92344,-90.088038&sensor=true_or_false
 			//formatted_address" : "
 			//coords = coords.substring(coords.indexOf("");
-			var callout = callout+" Trex is located at ";
-			bot.reply(message, endTime);
-			bot.reply(message, portal);
+			
 		}
 
 	}
