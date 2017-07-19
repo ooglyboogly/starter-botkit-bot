@@ -110,21 +110,22 @@ controller.hears(['heyOogly'], 'ambient', (bot, message) => {
 			whodisid2 = message.user;
 			whodis2 = info.user.name;
 			JSON.stringify(whodis2);    
+			
+			bot.api.channels.info({channel: message.channel}, function(err, info){
+				try {
+					whochannel2 = info.channel.name;
 
+				} catch (err) {    
+					whochannel2 = "Private channel or DM";
+
+				}
+				JSON.stringify(whochannel2);
+				callback()
+
+			})
 			   
-	})
-    bot.api.channels.info({channel: message.channel}, function(err, info){
-		try {
-			whochannel2 = info.channel.name;
-
-		} catch (err) {    
-			whochannel2 = "Private channel or DM";
-
-		}
-        JSON.stringify(whochannel2);
-		callback()
-
-	})
+		})
+    
 	}
 	function evaluate () {
 		if (whochannel2 == "testchannelpublic"  && whodis2 == "ooglybooglies"){
