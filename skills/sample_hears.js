@@ -104,7 +104,7 @@ controller.hears(['Tyranitar'], 'ambient', (bot, message) => {
 	var whodisid2 = 'empty'
 	var whodis2 = 'empty'
 	var whochannel2 = 'empty'
-	var callouts = ["Hey there, are you looking for a Tyranitar? I think i found one!!","Drop what you are doing (unless you're holding a baby? no still do it)! There is a Tyranitar!","T-t-t-t-tranitarrrrrrr! Yup, a Tyranitar has cracked. Go get em!"];
+	var callouts = ["Hey there, are you looking for a Tyranitar? I think i found one!!","Drop what you are doing (unless you're holding a baby? nvm, still drop it)! There is a Tyranitar!","T-t-t-t-tranitarrrrrrr! Yup, a Tyranitar has cracked. Go get em!"];
 	//https://slack.com/api/chat.postMessage?token="+XOXP_API_KEY+"&channel=%23gymalert&text=Tester&pretty=1
 	function getUserAndChannel(callback){
 		bot.api.users.info({user: message.user}, function(err, info){
@@ -129,7 +129,7 @@ controller.hears(['Tyranitar'], 'ambient', (bot, message) => {
     
 	}
 	function evaluate () {
-		if (whochannel2 == "testchannelpublic"  && whodis2 == "ooglybooglies"){
+		if (whochannel2 == "raid-battles-botalert"  && whodis2 == "ooglybot"){
 			
 			var coords = message.text.substring(message.text.indexOf("/#")+2,message.text.indexOf(">"));
 			var portal = message.text.substring(message.text.indexOf("**")+2,message.text.indexOf(".**"));
@@ -158,7 +158,7 @@ controller.hears(['Tyranitar'], 'ambient', (bot, message) => {
 					//bot.reply(message, callout);
 					bot.say({
 						text: callout,
-						channel: "testchannelpublic2"
+						channel: "raid-battles-callout"
 					});
 					//bot.reply(message, 'http://waze.to/?ll='+coords+"&navigate=yes");
 					//bot.reply(message, 'http://www.google.com/maps/place/'+coords);
