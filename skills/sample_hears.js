@@ -131,7 +131,7 @@ controller.hears(['Tyranitar'], 'ambient', (bot, message) => {
 	function evaluate () {
 		if (whochannel2 == "testchannelpublic"  && whodis2 == "ooglybooglies"){
 			var callout = callouts[Math.floor(Math.random()*callouts.length)];
-						var coords = message.substring(5);
+						var coords = message.toString().substring(5);
 
 			//var coords = message.substring(message.indexOf("#")+1);
 			//coords = coords.substring(coords.indexOf("");
