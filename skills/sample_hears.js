@@ -155,9 +155,9 @@ controller.hears(['Tyranitar'], 'ambient', (bot, message) => {
 					var address = returned.substring(returned.indexOf("formatted_address")+22,returned.indexOf("geometry")-13);
 					var callout = callouts[Math.floor(Math.random()*callouts.length)];
 					var callout = callout+" Trex is located at *"+portal+"* gym and will end in approx:  *"+endTime+"*  The nearest street address is:  *"+address+"*  \nYou can Waze to it using: "+'http://waze.to/?ll='+coords+"&navigate=yes"+"  \nor Google Maps:  "+'http://www.google.com/maps/place/'+coords;
-					bot.reply(message, callout);
+					//bot.reply(message, callout);
 					bot.say({
-						text: "Hello World!",
+						text: callout,
 						channel: "testchannelpublic2"
 					});
 					//bot.reply(message, 'http://waze.to/?ll='+coords+"&navigate=yes");
