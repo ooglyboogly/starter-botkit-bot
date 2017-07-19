@@ -11,7 +11,7 @@ respond immediately with a single line response.
 
 var wordfilter = require('wordfilter')
 var W3W_API_KEY = process.env.W3W_API_KEY
-var W3W_API_KEY = process.env.XOXP_API_KEY
+var XOXP_API_KEY = process.env.XOXP_API_KEY
 module.exports = controller => {
   /* Collect some very simple runtime stats for use in the uptime/debug command */
   var stats = {
