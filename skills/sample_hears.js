@@ -82,7 +82,7 @@ controller.hears([/(\w\w\w\w+?\.\w\w\w\w+?\.\w\w\w\w+)/g], 'ambient', (bot, mess
 
 		res.on("end", function () {
 			var body = Buffer.concat(chunks);
-			bot.reply(message, body.toString());
+			//bot.reply(message, body.toString());
 			var fulltext = body.toString();
 			if (fulltext.indexOf("Invalid") <= 0) {
 				var frontCut = fulltext.substring(fulltext.indexOf("-"));
@@ -100,7 +100,7 @@ controller.hears([/(\w\w\w\w+?\.\w\w\w\w+?\.\w\w\w\w+)/g], 'ambient', (bot, mess
 	//bot.reply(message, 'http://w3w.co/'+message.match)      
 })
 
-controller.hears(['heyOogly'], 'ambient', (bot, message) => {
+controller.hears(['Tyranitar'], 'ambient', (bot, message) => {
 	var whodisid2 = 'empty'
 	var whodis2 = 'empty'
 	var whochannel2 = 'empty'
@@ -131,7 +131,10 @@ controller.hears(['heyOogly'], 'ambient', (bot, message) => {
 	function evaluate () {
 		if (whochannel2 == "testchannelpublic"  && whodis2 == "ooglybooglies"){
 			var callout = callouts[Math.floor(Math.random()*callouts.length)];
-			bot.reply(message, message);
+			var coords = message.substring(message.indexOf("#")+1);
+			//coords = coords.substring(coords.indexOf("");
+			var callout = callout+" Trex is located at ";
+			bot.reply(message, coords);
 			bot.reply(message, callout);
 		}
 
