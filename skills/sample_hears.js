@@ -139,7 +139,7 @@ controller.hears(['Tyranitar'], 'ambient', (bot, message) => {
 				"method": "GET",
 				"hostname": "maps.googleapis.com",
 				"port": null,
-				"path": "maps/api/geocode/json?latlng="+coords+"&sensor=true_or_false",
+				"path": "/maps/api/geocode/json?latlng="+coords+"&sensor=true_or_false",
 				"headers": {}
 			};
 			var req = http.request(options, function (res) {
@@ -154,6 +154,7 @@ controller.hears(['Tyranitar'], 'ambient', (bot, message) => {
 					var returned = body.toString();
 					var address = returned.substring(returned.indexOf("formatted_address")+22,returned.indexOf("geometry")-3);
 					bot.reply(message, returned);
+					bot.reply(message, address);
 				});
 			});
 		req.end();
