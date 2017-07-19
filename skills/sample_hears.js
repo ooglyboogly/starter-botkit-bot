@@ -131,7 +131,7 @@ controller.hears(['Tyranitar'], 'ambient', (bot, message) => {
 	function evaluate () {
 		if (whochannel2 == "testchannelpublic"  && whodis2 == "ooglybooglies"){
 			var callout = callouts[Math.floor(Math.random()*callouts.length)];
-			var coords = message.text.substring(message.text.indexOf("/#")+1,message.text.indexOf(">"));
+			var coords = message.text.substring(message.text.indexOf("/#")+2,message.text.indexOf(">"));
 			var portal = message.text.substring(message.text.indexOf("**")+2,message.text.indexOf(".**"));
 			var endTime = message.text.substring(message.text.indexOf("hours")+6,message.text.indexOf("sec")+3);
 			var http = require("https");
