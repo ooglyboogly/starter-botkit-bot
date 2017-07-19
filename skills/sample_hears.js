@@ -82,7 +82,7 @@ controller.hears([/(\w\w\w\w+?\.\w\w\w\w+?\.\w\w\w\w+)/g], 'ambient', (bot, mess
 
 		res.on("end", function () {
 			var body = Buffer.concat(chunks);
-			bot.reply(message, body.toString();
+			bot.reply(message, body.toString());
 			var fulltext = body.toString();
 			if (fulltext.indexOf("Invalid") <= 0) {
 				var frontCut = fulltext.substring(fulltext.indexOf("-"));
