@@ -108,7 +108,9 @@ controller.hears(['heyOogly'], 'ambient', (bot, message) => {
 		whodisid = message.user;
 		whodis = info.user.name;
 		bot.reply(message, 'Who is: '+ whodisid + '  Who is it:  '+whodis);
-               JSON.stringify(whodis);         
+               JSON.stringify(whodis);    
+		bot.reply(message, 'Who is2: '+ whodisid + '  Who is it2:  '+whodis);
+			   
 	})  
     bot.api.channels.info({channel: message.channel}, function(err, info){
 		try {
@@ -118,7 +120,7 @@ controller.hears(['heyOogly'], 'ambient', (bot, message) => {
 		}
         JSON.stringify(whochannel);
 	})
-	bot.reply(message, 'Who is: '+ whodisid + '  Who is it:  '+whodis+'  What channel:  '+whochannel);
+	bot.reply(message, 'Who is3: '+ whodisid + '  Who is it3:  '+whodis+'  What channel3:  '+whochannel);
 	
 	 
 })
