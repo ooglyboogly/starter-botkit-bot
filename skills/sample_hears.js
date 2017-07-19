@@ -107,6 +107,7 @@ controller.hears(['heyOogly'], 'ambient', (bot, message) => {
 	bot.api.users.info({user: message.user}, function(err, info){
 		whodisid = message.user;
 		whodis = info.user.name;
+		bot.reply(message, 'Who is: '+ whodisid + '  Who is it:  '+whodis);
                JSON.stringify(whodis);         
 	})  
     bot.api.channels.info({channel: message.channel}, function(err, info){
