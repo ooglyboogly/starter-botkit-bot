@@ -236,7 +236,7 @@ controller.hears(['Articuno','Lugia'], 'ambient', (bot, message) => {
 			
 			var coords = message.text.substring(message.text.indexOf("/#")+2,message.text.indexOf(">"));
 			var portal = message.text.substring(message.text.indexOf("**")+2,message.text.indexOf(".**"));
-			var endTime = message.text.substring(message.text.indexOf("hours")+6,message.text.indexOf("sec")+3);
+			var endTime = message.text.substring(message.text.indexOf("Ending:")+8,message.text.indexOf("sec")+3);
 			var http = require("https");
 			var options = {
 				"method": "GET",
