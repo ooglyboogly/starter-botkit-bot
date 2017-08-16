@@ -203,7 +203,7 @@ controller.hears(['Tyranitar'], 'ambient', (bot, message) => {
 	 
 })
 
-controller.hears(['<HuntrBot>  embed:'], 'ambient', (bot, message) => {
+controller.hears(['embed: A wild'], 'ambient', (bot, message) => {
 	var whodisid2 = 'empty'
 	var whodis2 = 'empty'
 	var whochannel2 = 'empty'
