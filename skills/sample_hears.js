@@ -210,6 +210,7 @@ controller.hears(['embed: A wild'], 'ambient', (bot, message) => {
 	var callouts = [""];
 	//https://slack.com/api/chat.postMessage?token="+XOXP_API_KEY+"&channel=%23gymalert&text=Tester&pretty=1
 	function getUserAndChannel(callback){
+		bot.reply(message,message.match);
 		bot.api.users.info({user: message.user}, function(err, info){
 			whodisid2 = message.user;
 			whodis2 = info.user.name;
