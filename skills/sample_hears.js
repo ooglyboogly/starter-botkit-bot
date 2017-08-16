@@ -202,7 +202,7 @@ controller.hears(['Tyranitar'], 'ambient', (bot, message) => {
 
 	 
 })
-
+/*
 controller.hears(['embed: A wild'], 'ambient', (bot, message) => {
 	var whodisid2 = 'empty'
 	var whodis2 = 'empty'
@@ -237,7 +237,7 @@ controller.hears(['embed: A wild'], 'ambient', (bot, message) => {
 		if (whochannel2 == "testchannelpublic"  && whodis2 == "ooglybooglies"){
 			/*[discord/PokeHunt] <HuntrBot>  embed: A wild Dragonair (148) has appeared! - Click above to view in the wild.
 
-*Remaining: 17 min 2 sec* - https://PokeFetch.com/#29.98490373665176,-90.09552313792531*/
+*Remaining: 17 min 2 sec* - https://PokeFetch.com/#29.98490373665176,-90.09552313792531* /
 			var coords = message.text.substring(message.text.indexOf("/#")+2,37);
 			bot.reply(message,coords);
 			var pokeFound = message.text.substring(message.text.indexOf("wild ")+5,message.text.indexOf(" ("));
@@ -284,7 +284,7 @@ controller.hears(['embed: A wild'], 'ambient', (bot, message) => {
 
 	 
 })
-
+*/
 
 
 
