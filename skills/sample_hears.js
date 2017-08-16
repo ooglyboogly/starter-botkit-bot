@@ -232,7 +232,8 @@ controller.hears(['embed: A wild'], 'ambient', (bot, message) => {
     
 	}
 	function evaluate () {
-		if (whochannel2 == "gymalert"  && whodis2 == "ooglybooglies"){
+		//whochannel2 == "gymalert"  &&
+		if ( whodis2 == "ooglybooglies"){
 			/*[discord/PokeHunt] <HuntrBot>  embed: A wild Dragonair (148) has appeared! - Click above to view in the wild.
 
 *Remaining: 17 min 2 sec* - https://PokeFetch.com/#29.98490373665176,-90.09552313792531*/
