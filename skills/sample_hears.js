@@ -203,6 +203,90 @@ controller.hears(['Tyranitar'], 'ambient', (bot, message) => {
 	 
 })
 
+controller.hears(['<HuntrBot>  embed:'], 'ambient', (bot, message) => {
+	var whodisid2 = 'empty'
+	var whodis2 = 'empty'
+	var whochannel2 = 'empty'
+	var callouts = [""];
+	//https://slack.com/api/chat.postMessage?token="+XOXP_API_KEY+"&channel=%23gymalert&text=Tester&pretty=1
+	function getUserAndChannel(callback){
+		bot.api.users.info({user: message.user}, function(err, info){
+			whodisid2 = message.user;
+			whodis2 = info.user.name;
+			JSON.stringify(whodis2);    
+			
+			bot.api.channels.info({channel: message.channel}, function(err, info){
+				try {
+					whochannel2 = info.channel.name;
+
+				} catch (err) {    
+					whochannel2 = "Private channel or DM";
+
+				}
+				JSON.stringify(whochannel2);
+				callback()
+
+			})
+			   
+		})
+    
+	}
+	function evaluate () {
+		if (whochannel2 == "gymalert"  && whodis2 == "ooglybot"){
+			/*[discord/PokeHunt] <HuntrBot>  embed: A wild Dragonair (148) has appeared! - Click above to view in the wild.
+
+*Remaining: 17 min 2 sec* - https://PokeFetch.com/#29.98490373665176,-90.09552313792531*/
+			var coords = message.text.substring(message.text.indexOf("/#")+2,37);
+			//bot.reply(message,coords);
+			var pokeFound = message.text.substring(message.text.indexOf("wild ")+5,message.text.indexOf(" ("));
+			var endTime = message.text.substring(message.text.indexOf("min")+3,message.text.indexOf("sec")+3);
+			var http = require("https");
+			var options = {
+				"method": "GET",
+				"hostname": "maps.googleapis.com",
+				"port": null,
+				"path": "/maps/api/geocode/json?latlng="+coords+"&sensor=true_or_false",
+				"headers": {}
+			};
+			var req = http.request(options, function (res) {
+				var chunks = [];
+
+				res.on("data", function (chunk) {
+					chunks.push(chunk);
+				});
+
+				res.on("end", function () {
+					var body = Buffer.concat(chunks);
+					var returned = body.toString();
+					var address = returned.substring(returned.indexOf("formatted_address")+22,returned.indexOf("geometry")-13);
+					var callout = callouts[Math.floor(Math.random()*callouts.length)];
+					var callout = pokeFound + " was found and will despawn in approx:  *"+endTime+"*  The nearest street address is:  *"+address+"*  \nYou can Waze to it using: "+'http://waze.to/?ll='+coords+"&navigate=yes"+"  \nor Google Maps:  "+'http://www.google.com/maps/place/'+coords;
+					//bot.reply(message, callout);
+					bot.say({
+						text: callout,
+						channel: "testchannelpublic2"
+					});
+					//bot.reply(message, 'http://waze.to/?ll='+coords+"&navigate=yes");
+					//bot.reply(message, 'http://www.google.com/maps/place/'+coords);
+				});
+			});
+		req.end();
+			//http://maps.googleapis.com/maps/api/geocode/json?latlng=29.92344,-90.088038&sensor=true_or_false
+			//formatted_address" : "
+			//coords = coords.substring(coords.indexOf("");
+			
+		}
+
+	}
+	getUserAndChannel(evaluate);
+
+	 
+})
+
+
+
+
+//
 controller.hears(['Articuno','Lugia','Moltres','Zapdos','Mewtwo'], 'ambient', (bot, message) => {
 	var whodisid2 = 'empty'
 	var whodis2 = 'empty'
