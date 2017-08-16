@@ -237,7 +237,7 @@ controller.hears(['<HuntrBot>  embed:'], 'ambient', (bot, message) => {
 
 *Remaining: 17 min 2 sec* - https://PokeFetch.com/#29.98490373665176,-90.09552313792531*/
 			var coords = message.text.substring(message.text.indexOf("/#")+2,37);
-			//bot.reply(message,coords);
+			bot.reply(message,coords);
 			var pokeFound = message.text.substring(message.text.indexOf("wild ")+5,message.text.indexOf(" ("));
 			var endTime = message.text.substring(message.text.indexOf("min")+3,message.text.indexOf("sec")+3);
 			var http = require("https");
@@ -261,7 +261,7 @@ controller.hears(['<HuntrBot>  embed:'], 'ambient', (bot, message) => {
 					var address = returned.substring(returned.indexOf("formatted_address")+22,returned.indexOf("geometry")-13);
 					var callout = callouts[Math.floor(Math.random()*callouts.length)];
 					var callout = pokeFound + " was found and will despawn in approx:  *"+endTime+"*  The nearest street address is:  *"+address+"*  \nYou can Waze to it using: "+'http://waze.to/?ll='+coords+"&navigate=yes"+"  \nor Google Maps:  "+'http://www.google.com/maps/place/'+coords;
-					//bot.reply(message, callout);
+					bot.reply(message, callout);
 					bot.say({
 						text: callout,
 						channel: "testchannelpublic2"
