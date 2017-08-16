@@ -231,7 +231,7 @@ controller.hears(['embed: A wild'], 'ambient', (bot, message) => {
 		})
     
 	}
-	function evaluate () {
+	function evaluatePoke () {
 		if (whochannel2 == "testchannelpublic"  && whodis2 == "ooglybooglies"){
 			/*[discord/PokeHunt] <HuntrBot>  embed: A wild Dragonair (148) has appeared! - Click above to view in the wild.
 
@@ -278,7 +278,7 @@ controller.hears(['embed: A wild'], 'ambient', (bot, message) => {
 		}
 
 	}
-	getUserAndChannel(evaluate);
+	getUserAndChannel(evaluatePoke);
 
 	 
 })
