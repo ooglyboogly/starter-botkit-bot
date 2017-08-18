@@ -204,11 +204,11 @@ controller.hears(['Tyranitar'], 'ambient', (bot, message) => {
 })
 
 
-controller.hears(['Ooglybooglies'], 'ambient', (bot, message) => {
+controller.hears(['embed: A wild'], 'ambient', (bot, message) => {
 	var whodisid3 = 'empty'
 	var whodis3 = 'empty'
 	var whochannel3 = 'empty'
-	var callouts3 = ["Hey there, are you looking for a Tyranitar? I think i found one!!","Drop what you are doing (unless you're holding a baby? nvm, still drop it)! There is a Tyranitar!","T-t-t-t-tranitarrrrrrr! Yup, a Tyranitar has cracked. Go get em!"];
+	//var callouts3 = ["Hey there, are you looking for a Tyranitar? I think i found one!!","Drop what you are doing (unless you're holding a baby? nvm, still drop it)! There is a Tyranitar!","T-t-t-t-tranitarrrrrrr! Yup, a Tyranitar has cracked. Go get em!"];
 	//https://slack.com/api/chat.postMessage?token="+XOXP_API_KEY+"&channel=%23gymalert&text=Tester&pretty=1
 	function getUserAndChannel3(callback3){
 		bot.api.users.info({user: message.user}, function(err, info){
@@ -257,8 +257,8 @@ controller.hears(['Ooglybooglies'], 'ambient', (bot, message) => {
 					var body3 = Buffer.concat(chunks);
 					var returned3 = body3.toString();
 					var address3 = returned3.substring(returned3.indexOf("formatted_address")+22,returned3.indexOf("geometry")-13);
-					var callout3 = callouts3[Math.floor(Math.random()*callouts3.length)];
-					var callout3 = callout3+" Trex is located at *"+portal3+"* gym and will end in approx:  *"+endTime3+"*  The nearest street address is:  *"+address3+"*  \nYou can Waze to it using: "+'http://waze.to/?ll='+coords3+"&navigate=yes"+"  \nor Google Maps:  "+'http://www.google.com/maps/place/'+coords3;
+					//var callout3 = callouts3[Math.floor(Math.random()*callouts3.length)];
+					var callout3 = " Trex is located at *"+portal3+"* gym and will end in approx:  *"+endTime3+"*  The nearest street address is:  *"+address3+"*  \nYou can Waze to it using: "+'http://waze.to/?ll='+coords3+"&navigate=yes"+"  \nor Google Maps:  "+'http://www.google.com/maps/place/'+coords3;
 					//bot.reply(message, callout);
 					bot.say({
 						text: callout3,
