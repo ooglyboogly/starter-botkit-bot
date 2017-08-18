@@ -238,12 +238,12 @@ controller.hears(['embed: A wild'], 'ambient', (bot, message) => {
 *Remaining: 17 min 2 sec* - https://PokeFetch.com/#29.98490373665176,-90.09552313792531*/
 	
 	function evaluate3 () {
-		if (whochannel3 == "testchannelpublic"  && whodis3 == "ooglybooglies"){
+		if (whochannel3 == "pokehuntr"  && whodis3 == "ooglybot"){
 			
 			var coords3 = message.text.substring(message.text.indexOf("/#")+2);
-			bot.reply(message, coords3);
+			//bot.reply(message, coords3);
 			coords3 = coords3.slice(0,-1);
-			bot.reply(message, coords3);
+			//bot.reply(message, coords3);
 			//var portal3 = message.text.substring(message.text.indexOf("**")+2,message.text.indexOf(".**"));
 			var endTime3 = message.text.substring(message.text.indexOf("Remaining:")+11,message.text.indexOf("sec")+3);
 			var poke3 = message.text.substring(message.text.indexOf("embed: A wild")+14,message.text.indexOf("(")-1);
@@ -269,10 +269,18 @@ controller.hears(['embed: A wild'], 'ambient', (bot, message) => {
 					//var callout3 = callouts3[Math.floor(Math.random()*callouts3.length)];
 					var callout3 = "*"+poke3 + "* has been spotted and will poof in approx:  \n*"+endTime3+"*\nThe nearest street address is:  *"+address3+"*  \nYou can Waze to it using: "+'http://waze.to/?ll='+coords3+"&navigate=yes"+"  \nor Google Maps:  "+'http://www.google.com/maps/place/'+coords3;
 					//bot.reply(message, callout);
-					bot.say({
+					if (poke3 == "Dratini"){
+						bot.say({
 						text: callout3,
-						channel: "testchannelpublic2"
+						channel: "rarepoke-dratini"
 					});
+					} else {
+						bot.say({
+						text: callout3,
+						channel: "rarespawns-nola"
+					});
+					}
+					
 					//bot.reply(message, 'http://waze.to/?ll='+coords+"&navigate=yes");
 					//bot.reply(message, 'http://www.google.com/maps/place/'+coords);
 				});
