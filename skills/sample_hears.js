@@ -256,7 +256,7 @@ controller.hears(['Ooglybooglies'], 'ambient', (bot, message) => {
 				res.on("end", function () {
 					var body3 = Buffer.concat(chunks);
 					var returned3 = body3.toString();
-					var address3 = returned3.substring(returned.indexOf("formatted_address")+22,returned3.indexOf("geometry")-13);
+					var address3 = returned3.substring(returned3.indexOf("formatted_address")+22,returned3.indexOf("geometry")-13);
 					var callout3 = callouts3[Math.floor(Math.random()*callouts3.length)];
 					var callout3 = callout3+" Trex is located at *"+portal3+"* gym and will end in approx:  *"+endTime3+"*  The nearest street address is:  *"+address3+"*  \nYou can Waze to it using: "+'http://waze.to/?ll='+coords3+"&navigate=yes"+"  \nor Google Maps:  "+'http://www.google.com/maps/place/'+coords3;
 					//bot.reply(message, callout);
