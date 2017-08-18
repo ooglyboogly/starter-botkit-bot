@@ -202,6 +202,89 @@ controller.hears(['Tyranitar'], 'ambient', (bot, message) => {
 
 	 
 })
+
+
+controller.hears(['Ooglybooglies'], 'ambient', (bot, message) => {
+	var whodisid3 = 'empty'
+	var whodis3 = 'empty'
+	var whochannel3 = 'empty'
+	var callouts3 = ["Hey there, are you looking for a Tyranitar? I think i found one!!","Drop what you are doing (unless you're holding a baby? nvm, still drop it)! There is a Tyranitar!","T-t-t-t-tranitarrrrrrr! Yup, a Tyranitar has cracked. Go get em!"];
+	//https://slack.com/api/chat.postMessage?token="+XOXP_API_KEY+"&channel=%23gymalert&text=Tester&pretty=1
+	function getUserAndChannel3(callback3){
+		bot.api.users.info({user: message.user}, function(err, info){
+			whodisid3 = message.user;
+			whodis3 = info.user.name;
+			JSON.stringify(whodis3);    
+			
+			bot.api.channels.info({channel: message.channel}, function(err, info){
+				try {
+					whochannel3 = info.channel.name;
+
+				} catch (err) {    
+					whochannel3 = "Private channel or DM";
+
+				}
+				JSON.stringify(whochannel3);
+				callback3()
+
+			})
+			   
+		})
+    
+	}
+	function evaluate3 () {
+		if (whochannel3 == "testchannelpublic"  && whodis3 == "ooglybooglies"){
+			
+			var coords3 = message.text.substring(message.text.indexOf("/#")+2,message.text.indexOf(">"));
+			var portal3 = message.text.substring(message.text.indexOf("**")+2,message.text.indexOf(".**"));
+			var endTime3 = message.text.substring(message.text.indexOf("hours")+6,message.text.indexOf("sec")+3);
+			var http = require("https");
+			var options3 = {
+				"method": "GET",
+				"hostname": "maps.googleapis.com",
+				"port": null,
+				"path": "/maps/api/geocode/json?latlng="+coords+"&sensor=true_or_false",
+				"headers": {}
+			};
+			var req3 = http.request(options3, function (res) {
+				var chunks = [];
+
+				res.on("data", function (chunk) {
+					chunks.push(chunk);
+				});
+
+				res.on("end", function () {
+					var body3 = Buffer.concat(chunks);
+					var returned3 = body3.toString();
+					var address3 = returned3.substring(returned.indexOf("formatted_address")+22,returned3.indexOf("geometry")-13);
+					var callout3 = callouts3[Math.floor(Math.random()*callouts3.length)];
+					var callout3 = callout3+" Trex is located at *"+portal3+"* gym and will end in approx:  *"+endTime3+"*  The nearest street address is:  *"+address3+"*  \nYou can Waze to it using: "+'http://waze.to/?ll='+coords3+"&navigate=yes"+"  \nor Google Maps:  "+'http://www.google.com/maps/place/'+coords3;
+					//bot.reply(message, callout);
+					bot.say({
+						text: callout3,
+						channel: "testchannelpublic2"
+					});
+					//bot.reply(message, 'http://waze.to/?ll='+coords+"&navigate=yes");
+					//bot.reply(message, 'http://www.google.com/maps/place/'+coords);
+				});
+			});
+		req3.end();
+			//http://maps.googleapis.com/maps/api/geocode/json?latlng=29.92344,-90.088038&sensor=true_or_false
+			//formatted_address" : "
+			//coords = coords.substring(coords.indexOf("");
+			
+		}
+
+	}
+	getUserAndChannel3(evaluate3);
+
+	 
+})
+
+
+
+
+
 /*
 controller.hears(['embed: A wild'], 'ambient', (bot, message) => {
 	var whodisid2 = 'empty'
