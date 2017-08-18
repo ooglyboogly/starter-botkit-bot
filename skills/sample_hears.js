@@ -232,12 +232,18 @@ controller.hears(['embed: A wild'], 'ambient', (bot, message) => {
 		})
     
 	}
+	
+	/*[discord/PokeHunt] <HuntrBot>  embed: A wild Dragonair (148) has appeared! - Click above to view in the wild.
+
+*Remaining: 17 min 2 sec* - https://PokeFetch.com/#29.98490373665176,-90.09552313792531*/
+	
 	function evaluate3 () {
 		if (whochannel3 == "testchannelpublic"  && whodis3 == "ooglybooglies"){
 			
-			var coords3 = message.text.substring(message.text.indexOf("/#")+2,message.text.indexOf(">"));
-			var portal3 = message.text.substring(message.text.indexOf("**")+2,message.text.indexOf(".**"));
-			var endTime3 = message.text.substring(message.text.indexOf("hours")+6,message.text.indexOf("sec")+3);
+			var coords3 = message.text.substring(message.text.indexOf("/#")+2);
+			//var portal3 = message.text.substring(message.text.indexOf("**")+2,message.text.indexOf(".**"));
+			var endTime3 = message.text.substring(message.text.indexOf("min")+3,message.text.indexOf("sec")+3);
+			var poke3 = message.text.substring(message.text.indexOf("embed: A wild")+13,message.text.indexOf("("));
 			var http = require("https");
 			var options3 = {
 				"method": "GET",
@@ -258,7 +264,7 @@ controller.hears(['embed: A wild'], 'ambient', (bot, message) => {
 					var returned3 = body3.toString();
 					var address3 = returned3.substring(returned3.indexOf("formatted_address")+22,returned3.indexOf("geometry")-13);
 					//var callout3 = callouts3[Math.floor(Math.random()*callouts3.length)];
-					var callout3 = " Trex is located at *"+portal3+"* gym and will end in approx:  *"+endTime3+"*  The nearest street address is:  *"+address3+"*  \nYou can Waze to it using: "+'http://waze.to/?ll='+coords3+"&navigate=yes"+"  \nor Google Maps:  "+'http://www.google.com/maps/place/'+coords3;
+					var callout3 = poke3 + " is located has been spotted and will poof in approx:  \n*"+endTime3+"*\nThe nearest street address is:  *"+address3+"*  \nYou can Waze to it using: "+'http://waze.to/?ll='+coords3+"&navigate=yes"+"  \nor Google Maps:  "+'http://www.google.com/maps/place/'+coords3;
 					//bot.reply(message, callout);
 					bot.say({
 						text: callout3,
