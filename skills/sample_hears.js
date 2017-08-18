@@ -241,6 +241,9 @@ controller.hears(['embed: A wild'], 'ambient', (bot, message) => {
 		if (whochannel3 == "testchannelpublic"  && whodis3 == "ooglybooglies"){
 			
 			var coords3 = message.text.substring(message.text.indexOf("/#")+2);
+			bot.reply(message, coords3);
+			coords3 = coords3.slice(0,-1);
+			bot.reply(message, coords3);
 			//var portal3 = message.text.substring(message.text.indexOf("**")+2,message.text.indexOf(".**"));
 			var endTime3 = message.text.substring(message.text.indexOf("min")+3,message.text.indexOf("sec")+3);
 			var poke3 = message.text.substring(message.text.indexOf("embed: A wild")+13,message.text.indexOf("("));
@@ -264,7 +267,7 @@ controller.hears(['embed: A wild'], 'ambient', (bot, message) => {
 					var returned3 = body3.toString();
 					var address3 = returned3.substring(returned3.indexOf("formatted_address")+22,returned3.indexOf("geometry")-13);
 					//var callout3 = callouts3[Math.floor(Math.random()*callouts3.length)];
-					var callout3 = poke3 + " is located has been spotted and will poof in approx:  \n*"+endTime3+"*\nThe nearest street address is:  *"+address3+"*  \nYou can Waze to it using: "+'http://waze.to/?ll='+coords3+"&navigate=yes"+"  \nor Google Maps:  "+'http://www.google.com/maps/place/'+coords3;
+					var callout3 = "*"+poke3 + "* has been spotted and will poof in approx:  \n*"+endTime3+"*\nThe nearest street address is:  *"+address3+"*  \nYou can Waze to it using: "+'http://waze.to/?ll='+coords3+"&navigate=yes"+"  \nor Google Maps:  "+'http://www.google.com/maps/place/'+coords3;
 					//bot.reply(message, callout);
 					bot.say({
 						text: callout3,
