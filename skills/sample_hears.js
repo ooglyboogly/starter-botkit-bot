@@ -243,7 +243,7 @@ controller.hears(['Ooglybooglies'], 'ambient', (bot, message) => {
 				"method": "GET",
 				"hostname": "maps.googleapis.com",
 				"port": null,
-				"path": "/maps/api/geocode/json?latlng="+coords+"&sensor=true_or_false",
+				"path": "/maps/api/geocode/json?latlng="+coords3+"&sensor=true_or_false",
 				"headers": {}
 			};
 			var req3 = http.request(options3, function (res) {
