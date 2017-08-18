@@ -245,7 +245,7 @@ controller.hears(['embed: A wild'], 'ambient', (bot, message) => {
 			coords3 = coords3.slice(0,-1);
 			bot.reply(message, coords3);
 			//var portal3 = message.text.substring(message.text.indexOf("**")+2,message.text.indexOf(".**"));
-			var endTime3 = message.text.substring(message.text.indexOf("min")+3,message.text.indexOf("sec")+3);
+			var endTime3 = message.text.substring(message.text.indexOf("Remaining:")+11,message.text.indexOf("sec")+3);
 			var poke3 = message.text.substring(message.text.indexOf("embed: A wild")+13,message.text.indexOf("("));
 			var http = require("https");
 			var options3 = {
