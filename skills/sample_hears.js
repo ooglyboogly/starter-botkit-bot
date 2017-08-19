@@ -238,7 +238,7 @@ controller.hears(['embed: A wild'], 'ambient', (bot, message) => {
 *Remaining: 17 min 2 sec* - https://PokeFetch.com/#29.98490373665176,-90.09552313792531*/
 	
 	function evaluate3 () {
-		if (whochannel3 == "pokehuntr"  && whodis3 == "ooglybot"){
+		if (whochannel3 == "Private channel or DM"  && whodis3 == "ooglybot"){
 			
 			var coords3 = message.text.substring(message.text.indexOf("/#")+2);
 			//bot.reply(message, coords3);
