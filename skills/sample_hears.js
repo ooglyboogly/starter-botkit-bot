@@ -274,6 +274,11 @@ controller.hears(['embed: A wild'], 'ambient', (bot, message) => {
 						text: callout3,
 						channel: "rarepoke-dratini"
 					});
+					} else if (poke3 == "Machop"){
+						bot.say({
+						text: callout3,
+						channel: "rarepoke-machop"
+					});
 					} else {
 						bot.say({
 						text: callout3,
