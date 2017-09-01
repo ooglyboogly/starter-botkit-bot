@@ -394,7 +394,7 @@ controller.hears(['embed: A wild'], 'ambient', (bot, message) => {
 
 
 //
-controller.hears(['Articuno','Lugia','Moltres','Zapdos','Mewtwo'], 'ambient', (bot, message) => {
+controller.hears(['Articuno','Lugia','Moltres','Zapdos','Mewtwo','Raikou'], 'ambient', (bot, message) => {
 	var whodisid2 = 'empty'
 	var whodis2 = 'empty'
 	var whochannel2 = 'empty'
