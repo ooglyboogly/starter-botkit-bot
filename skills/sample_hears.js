@@ -297,6 +297,64 @@ controller.hears(['embed: A wild'], 'ambient', (bot, message) => {
 			
 		}
 
+		if (whochannel3 == "pokehuntrwb"  && whodis3 == "ooglybot"){
+			
+			var coords3 = message.text.substring(message.text.indexOf("/#")+2);
+			//bot.reply(message, coords3);
+			coords3 = coords3.slice(0,-1);
+			//bot.reply(message, coords3);
+			//var portal3 = message.text.substring(message.text.indexOf("**")+2,message.text.indexOf(".**"));
+			var endTime3 = message.text.substring(message.text.indexOf("Remaining:")+11,message.text.indexOf("sec")+3);
+			var poke3 = message.text.substring(message.text.indexOf("embed: A wild")+14,message.text.indexOf("(")-1);
+			var http = require("https");
+			var options3 = {
+				"method": "GET",
+				"hostname": "maps.googleapis.com",
+				"port": null,
+				"path": "/maps/api/geocode/json?latlng="+coords3+"&sensor=true_or_false",
+				"headers": {}
+			};
+			var req3 = http.request(options3, function (res) {
+				var chunks = [];
+
+				res.on("data", function (chunk) {
+					chunks.push(chunk);
+				});
+
+				res.on("end", function () {
+					var body3 = Buffer.concat(chunks);
+					var returned3 = body3.toString();
+					var address3 = returned3.substring(returned3.indexOf("formatted_address")+22,returned3.indexOf("geometry")-13);
+					//var callout3 = callouts3[Math.floor(Math.random()*callouts3.length)];
+					var callout3 = "*"+poke3 + "* has been spotted and will poof in approx:  \n*"+endTime3+"*\nThe nearest street address is:  *"+address3+"*  \nYou can Waze to it using: "+'http://waze.to/?ll='+coords3+"&navigate=yes"+"  \nor Google Maps:  "+'http://www.google.com/maps/place/'+coords3;
+					//bot.reply(message, callout);
+					/*if (poke3 == "Dratini"){
+						bot.say({
+						text: callout3,
+						channel: "rarepoke-dratini"
+					});
+					} else if (poke3 == "Machop"){
+						bot.say({
+						text: callout3,
+						channel: "rarepoke-machop"
+					});
+					} else {*/
+						bot.say({
+						text: callout3,
+						channel: "geo-westbank"
+						});
+					//}
+					
+					//bot.reply(message, 'http://waze.to/?ll='+coords+"&navigate=yes");
+					//bot.reply(message, 'http://www.google.com/maps/place/'+coords);
+				});
+			});
+		req3.end();
+			//http://maps.googleapis.com/maps/api/geocode/json?latlng=29.92344,-90.088038&sensor=true_or_false
+			//formatted_address" : "
+			//coords = coords.substring(coords.indexOf("");
+			
+		}
 	}
 	getUserAndChannel3(evaluate3);
 
