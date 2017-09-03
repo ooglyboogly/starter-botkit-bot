@@ -267,7 +267,7 @@ controller.hears(['embed: A wild'], 'ambient', (bot, message) => {
 					var returned3 = body3.toString();
 					var address3 = returned3.substring(returned3.indexOf("formatted_address")+22,returned3.indexOf("geometry")-13);
 					//var callout3 = callouts3[Math.floor(Math.random()*callouts3.length)];
-					var callout3 = ":"+message.match+":  *"+poke3 + "* has been spotted and will poof in approx:  \n*"+endTime3+"*\nThe nearest street address is:  *"+address3+"*  \nYou can Waze to it using: "+'http://waze.to/?ll='+coords3+"&navigate=yes"+"  \nor Google Maps:  "+'http://www.google.com/maps/place/'+coords3;
+					var callout3 = ":"+poke3+":  *"+poke3 + "* has been spotted and will poof in approx:  \n*"+endTime3+"*\nThe nearest street address is:  *"+address3+"*  \nYou can Waze to it using: "+'http://waze.to/?ll='+coords3+"&navigate=yes"+"  \nor Google Maps:  "+'http://www.google.com/maps/place/'+coords3;
 					//bot.reply(message, callout);
 					if (poke3 == "Dratini"){
 						bot.say({
@@ -326,7 +326,7 @@ controller.hears(['embed: A wild'], 'ambient', (bot, message) => {
 					var returned3 = body3.toString();
 					var address3 = returned3.substring(returned3.indexOf("formatted_address")+22,returned3.indexOf("geometry")-13);
 					//var callout3 = callouts3[Math.floor(Math.random()*callouts3.length)];
-					var callout3 = ":"+message.match+":  *"+poke3 + "* has been spotted and will poof in approx:  \n*"+endTime3+"*\nThe nearest street address is:  *"+address3+"*  \nYou can Waze to it using: "+'http://waze.to/?ll='+coords3+"&navigate=yes"+"  \nor Google Maps:  "+'http://www.google.com/maps/place/'+coords3;
+					var callout3 = ":"+poke3+":  *"+poke3 + "* has been spotted and will poof in approx:  \n*"+endTime3+"*\nThe nearest street address is:  *"+address3+"*  \nYou can Waze to it using: "+'http://waze.to/?ll='+coords3+"&navigate=yes"+"  \nor Google Maps:  "+'http://www.google.com/maps/place/'+coords3;
 					//bot.reply(message, callout);
 					/*if (poke3 == "Dratini"){
 						bot.say({
