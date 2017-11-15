@@ -203,7 +203,6 @@ controller.hears(['Tyranitar'], 'ambient', (bot, message) => {
 	 
 })
 
-
 controller.hears(['embed: A wild'], 'ambient', (bot, message) => {
 	var whodisid3 = 'empty'
 	var whodis3 = 'empty'
@@ -508,6 +507,13 @@ controller.hears(['Articuno','Lugia','Moltres','Zapdos','Mewtwo','Raikou','Suicu
 					var callout = callouts[Math.floor(Math.random()*callouts.length)];
 					var callout = ":"+message.match+":  *"+message.match+"* is located at *"+portal+"* gym \nRaid will end in approx:  *"+endTime+"*\nThe nearest street address is:  *"+address+"*  \nYou can Waze to it using: "+'http://waze.to/?ll='+coords+"&navigate=yes"+"  \nor Google Maps:  "+'http://www.google.com/maps/place/'+coords;
 					//bot.reply(message, callout);
+					if (coords = "30.005260,-90.175540" || "30.004150,-90.105470" || "29.953703,-90.069243" || "29.949769,-90.069848" || "29.895420,-90.060160") {
+						bot.say({
+						text: callout,
+						channel: "raid-battles-spons"
+					});
+					
+					}
 					bot.say({
 						text: callout,
 						channel: "raid-battles-callout"
@@ -553,6 +559,129 @@ controller.hears(['Articuno','Lugia','Moltres','Zapdos','Mewtwo','Raikou','Suicu
 					bot.say({
 						text: callout,
 						channel: "geo-westbank"
+					});
+					//bot.reply(message, 'http://waze.to/?ll='+coords+"&navigate=yes");
+					//bot.reply(message, 'http://www.google.com/maps/place/'+coords);
+				});
+			});
+		req.end();
+			//http://maps.googleapis.com/maps/api/geocode/json?latlng=29.92344,-90.088038&sensor=true_or_false
+			//formatted_address" : "
+			//coords = coords.substring(coords.indexOf("");
+			
+		}
+
+	}
+	getUserAndChannel(evaluateLeg);
+
+	 
+})
+
+
+//Sponsored Gyms
+controller.hears(['[discord/PokeHunt] <GymHuntrBot>'], 'ambient', (bot, message) => {
+	var whodisid2 = 'empty'
+	var whodis2 = 'empty'
+	var whochannel2 = 'empty'
+	var callouts = ["Woah, WTF is that? A LEGENDARY!","Um, why are you still in Slack? Open POGO and go get that LEGENDARY!","Get them Golden Raz ready bro! Its time to get yourself a LEGENDARY!"];
+	//https://slack.com/api/chat.postMessage?token="+XOXP_API_KEY+"&channel=%23gymalert&text=Tester&pretty=1
+	function getUserAndChannel(callback){
+		bot.api.users.info({user: message.user}, function(err, info){
+			whodisid2 = message.user;
+			whodis2 = info.user.name;
+			JSON.stringify(whodis2);    
+			
+			bot.api.channels.info({channel: message.channel}, function(err, info){
+				try {
+					whochannel2 = info.channel.name;
+
+				} catch (err) {    
+					whochannel2 = "Private channel or DM";
+
+				}
+				JSON.stringify(whochannel2);
+				callback()
+
+			})
+			   
+		})
+    
+	}
+	function evaluateLeg () {
+		if (whochannel2 == "raid-battles-botalert"  && whodis2 == "ooglybot"){
+			
+			var coords = message.text.substring(message.text.indexOf("/#")+2,message.text.indexOf(">"));
+			var portal = message.text.substring(message.text.indexOf("**")+2,message.text.indexOf(".**"));
+			var endTime = message.text.substring(message.text.indexOf("Ending:")+8,message.text.indexOf("sec")+3);
+			var http = require("https");
+			var options = {
+				"method": "GET",
+				"hostname": "maps.googleapis.com",
+				"port": null,
+				"path": "/maps/api/geocode/json?latlng="+coords+"&sensor=true_or_false",
+				"headers": {}
+			};
+			var req = http.request(options, function (res) {
+				var chunks = [];
+
+				res.on("data", function (chunk) {
+					chunks.push(chunk);
+				});
+
+				res.on("end", function () {
+					var body = Buffer.concat(chunks);
+					var returned = body.toString();
+					var address = returned.substring(returned.indexOf("formatted_address")+22,returned.indexOf("geometry")-13);
+					var callout = callouts[Math.floor(Math.random()*callouts.length)];
+					var callout = ":"+message.match+":  *"+message.match+"* is located at *"+portal+"* gym \nRaid will end in approx:  *"+endTime+"*\nThe nearest street address is:  *"+address+"*  \nYou can Waze to it using: "+'http://waze.to/?ll='+coords+"&navigate=yes"+"  \nor Google Maps:  "+'http://www.google.com/maps/place/'+coords;
+					//bot.reply(message, callout);
+					if (coords = "30.005260,-90.175540" || "30.004150,-90.105470" || "29.953703,-90.069243" || "29.949769,-90.069848" || "29.895420,-90.060160") {
+						bot.say({
+						text: callout,
+						channel: "raid-battles-spons"
+					});
+					//bot.reply(message, 'http://waze.to/?ll='+coords+"&navigate=yes");
+					//bot.reply(message, 'http://www.google.com/maps/place/'+coords);
+				});
+			});
+		req.end();
+			//http://maps.googleapis.com/maps/api/geocode/json?latlng=29.92344,-90.088038&sensor=true_or_false
+			//formatted_address" : "
+			//coords = coords.substring(coords.indexOf("");
+			
+		}
+		
+		if (whochannel2 == "raid-battles-wbalert"  && whodis2 == "ooglybot"){
+			
+			var coords = message.text.substring(message.text.indexOf("/#")+2,message.text.indexOf(">"));
+			var portal = message.text.substring(message.text.indexOf("**")+2,message.text.indexOf(".**"));
+			var endTime = message.text.substring(message.text.indexOf("Ending:")+8,message.text.indexOf("sec")+3);
+			var http = require("https");
+			var options = {
+				"method": "GET",
+				"hostname": "maps.googleapis.com",
+				"port": null,
+				"path": "/maps/api/geocode/json?latlng="+coords+"&sensor=true_or_false",
+				"headers": {}
+			};
+			var req = http.request(options, function (res) {
+				var chunks = [];
+
+				res.on("data", function (chunk) {
+					chunks.push(chunk);
+				});
+
+				res.on("end", function () {
+					var body = Buffer.concat(chunks);
+					var returned = body.toString();
+					var address = returned.substring(returned.indexOf("formatted_address")+22,returned.indexOf("geometry")-13);
+					var callout = callouts[Math.floor(Math.random()*callouts.length)];
+					var callout =":"+message.match+":  *"+message.match+"* is located at *"+portal+"* gym \nRaid will end in approx:  *"+endTime+"*\nThe nearest street address is:  *"+address+"*  \nYou can Waze to it using: "+'http://waze.to/?ll='+coords+"&navigate=yes"+"  \nor Google Maps:  "+'http://www.google.com/maps/place/'+coords;
+					//bot.reply(message, callout);
+					if (coords = "30.005260,-90.175540" || "30.004150,-90.105470" || "29.953703,-90.069243" || "29.949769,-90.069848" || "29.895420,-90.060160") {
+						bot.say({
+						text: callout,
+						channel: "raid-battles-spons"
 					});
 					//bot.reply(message, 'http://waze.to/?ll='+coords+"&navigate=yes");
 					//bot.reply(message, 'http://www.google.com/maps/place/'+coords);
