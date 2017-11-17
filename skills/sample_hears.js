@@ -579,7 +579,7 @@ controller.hears(['Articuno','Lugia','Moltres','Zapdos','Mewtwo','Raikou','Suicu
 
 
 //Sponsored Gyms
-controller.hears(['GymHuntrBot'], 'ambient', (bot, message) => {
+controller.hears(['[discord/PokeHunt] <GymHuntrBot>'], 'ambient', (bot, message) => {
 	var whodisid4 = 'empty'
 	var whodis4 = 'empty'
 	var whochannel4 = 'empty'
@@ -608,7 +608,7 @@ controller.hears(['GymHuntrBot'], 'ambient', (bot, message) => {
     
 	}
 	function evaluateLeg4 () {
-		if (whochannel4 == "raid-battles-botalert"  ){//&& whodis4 == "ooglybot"){
+		if (whochannel4 == "raid-battles-botalert"  && whodis4 == "ooglybot"){
 			
 			var coords4 = message.text.substring(message.text.indexOf("/#")+2,message.text.indexOf(">"));
 			var portal4 = message.text.substring(message.text.indexOf("**")+2,message.text.indexOf(".**"));
