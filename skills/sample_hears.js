@@ -507,7 +507,7 @@ controller.hears(['Articuno','Lugia','Moltres','Zapdos','Mewtwo','Raikou','Suicu
 					var callout = callouts[Math.floor(Math.random()*callouts.length)];
 					var callout = ":"+message.match+":  *"+message.match+"* is located at *"+portal+"* gym \nRaid will end in approx:  *"+endTime+"*\nThe nearest street address is:  *"+address+"*  \nYou can Waze to it using: "+'http://waze.to/?ll='+coords+"&navigate=yes"+"  \nor Google Maps:  "+'http://www.google.com/maps/place/'+coords;
 					//bot.reply(message, callout);
-					if (coords = "30.005260,-90.175540" || "30.004150,-90.105470" || "29.953703,-90.069243" || "29.949769,-90.069848" || "29.895420,-90.060160") {
+					if (coords = "30.00526,-90.17554" || "30.004150,-90.105470" || "29.953703,-90.069243" || "29.949769,-90.069848" || "29.895420,-90.060160") {
 						bot.say({
 						text: callout,
 						channel: "raid-battles-spons"
