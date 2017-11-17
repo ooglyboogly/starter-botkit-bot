@@ -600,7 +600,7 @@ controller.hears(['[discord/PokeHunt] <GymHuntrBot>'], 'ambient', (bot, message)
 
 				}
 				JSON.stringify(whochannel4);
-				callback()
+				callback4()
 
 			})
 			   
