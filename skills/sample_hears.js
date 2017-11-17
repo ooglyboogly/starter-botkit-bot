@@ -579,7 +579,7 @@ controller.hears(['Articuno','Lugia','Moltres','Zapdos','Mewtwo','Raikou','Suicu
 
 
 //Sponsored Gyms
-controller.hears(['[discord/PokeHunt] <GymHuntrBot>'], 'ambient', (bot, message) => {
+controller.hears(['[discord/PokeHunt] &lt;GymHuntrBot&gt;'], 'ambient', (bot, message) => {
 	var whodisid4 = 'empty'
 	var whodis4 = 'empty'
 	var whochannel4 = 'empty'
