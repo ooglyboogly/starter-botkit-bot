@@ -635,7 +635,7 @@ controller.hears(['[discord/PokeHunt] <GymHuntrBot>'], 'ambient', (bot, message)
 					//var callout4 = callouts4[Math.floor(Math.random()*callouts4.length)];
 					var callout4 = "Sponsored Raid is located at *"+portal4+"* gym \nRaid will end in approx:  *"+endTime4+"*\nThe nearest street address is:  *"+address4+"*  \nYou can Waze to it using: "+'http://waze.to/?ll='+coords+"&navigate=yes"+"  \nor Google Maps:  "+'http://www.google.com/maps/place/'+coords;
 					//bot.reply(message, callout);
-					if (coords4 = "30.005260,-90.175540" || "30.004150,-90.105470" || "29.953703,-90.069243" || "29.949769,-90.069848" || "29.895420,-90.060160") {
+					if (coords4 = "30.00526,-90.17554" || "30.004150,-90.105470" || "29.953703,-90.069243" || "29.949769,-90.069848" || "29.895420,-90.060160") {
 						bot.say({
 						text: callout4,
 						channel: "raid-battles-spons"
@@ -679,7 +679,7 @@ controller.hears(['[discord/PokeHunt] <GymHuntrBot>'], 'ambient', (bot, message)
 					//var callout = callouts[Math.floor(Math.random()*callouts.length)];
 					var callout4 ="Sponsored Raid is located at *"+portal4+"* gym \nRaid will end in approx:  *"+endTime4+"*\nThe nearest street address is:  *"+address4+"*  \nYou can Waze to it using: "+'http://waze.to/?ll='+coords+"&navigate=yes"+"  \nor Google Maps:  "+'http://www.google.com/maps/place/'+coords;
 					//bot.reply(message, callout);
-					if (coords4 = "30.005260,-90.175540" || "30.004150,-90.105470" || "29.953703,-90.069243" || "29.949769,-90.069848" || "29.895420,-90.060160") {
+					if (coords4 = "30.00526,-90.17554" || "30.004150,-90.105470" || "29.953703,-90.069243" || "29.949769,-90.069848" || "29.895420,-90.060160") {
 						bot.say({
 						text: callout4,
 						channel: "raid-battles-spons"
