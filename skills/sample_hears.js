@@ -585,7 +585,7 @@ controller.hears(['[discord/PokeHunt] <GymHuntrBot>'], 'ambient', (bot, message)
 	var whochannel4 = 'empty'
 	var callouts4 = ["Woah, WTF is that? A LEGENDARY!","Um, why are you still in Slack? Open POGO and go get that LEGENDARY!","Get them Golden Raz ready bro! Its time to get yourself a LEGENDARY!"];
 	//https://slack.com/api/chat.postMessage?token="+XOXP_API_KEY+"&channel=%23gymalert&text=Tester&pretty=1
-	function getUserAndChannel(callback4){
+	function getUserAndChannel4(callback4){
 		bot.api.users.info({user: message.user}, function(err, info){
 			whodisid4 = message.user;
 			whodis4 = info.user.name;
@@ -633,13 +633,14 @@ controller.hears(['[discord/PokeHunt] <GymHuntrBot>'], 'ambient', (bot, message)
 					var returned4 = body4.toString();
 					var address4 = returned4.substring(returned4.indexOf("formatted_address")+22,returned4.indexOf("geometry")-13);
 					//var callout4 = callouts4[Math.floor(Math.random()*callouts4.length)];
-					var callout4 = "Sponsored Raid is located at *"+portal4+"* gym \nRaid will end in approx:  *"+endTime4+"*\nThe nearest street address is:  *"+address4+"*  \nYou can Waze to it using: "+'http://waze.to/?ll='+coords+"&navigate=yes"+"  \nor Google Maps:  "+'http://www.google.com/maps/place/'+coords;
+					var callout4 = "Sponsored Raid is located at *"+portal4+"* gym \nRaid will end in approx:  *"+endTime4+"*\nThe nearest street address is:  *"+address4+"*  \nYou can Waze to it using: "+'http://waze.to/?ll='+coords4+"&navigate=yes"+"  \nor Google Maps:  "+'http://www.google.com/maps/place/'+coords4;
 					//bot.reply(message, callout);
 					//if (coords4 = "30.00526,-90.17554" || "30.004150,-90.105470" || "29.953703,-90.069243" || "29.949769,-90.069848" || "29.895420,-90.060160") {
 						bot.say({
 						text: callout4,
 						channel: "raid-battles-spons"
 						});
+						
 					//}
 					//bot.reply(message, 'http://waze.to/?ll='+coords+"&navigate=yes");
 					//bot.reply(message, 'http://www.google.com/maps/place/'+coords);
@@ -652,7 +653,7 @@ controller.hears(['[discord/PokeHunt] <GymHuntrBot>'], 'ambient', (bot, message)
 			
 		}
 		
-		if (whochannel4 == "raid-battles-wbalert"  && whodis4 == "ooglybot"){
+		/* if (whochannel4 == "raid-battles-wbalert"  && whodis4 == "ooglybot"){
 			
 			var coords4 = message.text.substring(message.text.indexOf("/#")+2,message.text.indexOf(">"));
 			var portal4 = message.text.substring(message.text.indexOf("**")+2,message.text.indexOf(".**"));
@@ -677,7 +678,7 @@ controller.hears(['[discord/PokeHunt] <GymHuntrBot>'], 'ambient', (bot, message)
 					var returned4 = body4.toString();
 					var address4 = returned4.substring(returned4.indexOf("formatted_address")+22,returned4.indexOf("geometry")-13);
 					//var callout = callouts[Math.floor(Math.random()*callouts.length)];
-					var callout4 ="Sponsored Raid is located at *"+portal4+"* gym \nRaid will end in approx:  *"+endTime4+"*\nThe nearest street address is:  *"+address4+"*  \nYou can Waze to it using: "+'http://waze.to/?ll='+coords+"&navigate=yes"+"  \nor Google Maps:  "+'http://www.google.com/maps/place/'+coords;
+					var callout4 ="Sponsored Raid is located at *"+portal4+"* gym \nRaid will end in approx:  *"+endTime4+"*\nThe nearest street address is:  *"+address4+"*  \nYou can Waze to it using: "+'http://waze.to/?ll='+coords4+"&navigate=yes"+"  \nor Google Maps:  "+'http://www.google.com/maps/place/'+coords4;
 					//bot.reply(message, callout);
 					if (coords4 = "30.00526,-90.17554" || "30.004150,-90.105470" || "29.953703,-90.069243" || "29.949769,-90.069848" || "29.895420,-90.060160") {
 						bot.say({
@@ -694,10 +695,10 @@ controller.hears(['[discord/PokeHunt] <GymHuntrBot>'], 'ambient', (bot, message)
 			//formatted_address" : "
 			//coords = coords.substring(coords.indexOf("");
 			
-		}
+		} */
 
 	}
-	getUserAndChannel(evaluateLeg4);
+	getUserAndChannel4(evaluateLeg4);
 
 	 
 })
