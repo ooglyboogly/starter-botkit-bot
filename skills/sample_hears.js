@@ -478,7 +478,7 @@ controller.hears(['GymHuntrBot'], 'ambient', (bot, message) => {
 			
 			var coords4 = message.text.substring(message.text.indexOf("/#")+2,message.text.indexOf(">"));
 			var portal4 = message.text.substring(message.text.indexOf("**")+2,message.text.indexOf(".**"));
-			var raidMon4 = message.text.substring(message.text.indexOf(".**\n")+4,message.text.indexOf("\nCP:"));
+			var raidMon4 = message.text.substring(message.text.indexOf("embed: ")+7,message.text.indexOf("Raid")+4);
 			var endTime4 = message.text.substring(message.text.indexOf("Ending:")+8,message.text.indexOf("sec")+3);
 			var http = require("https");
 			var options4 = {
