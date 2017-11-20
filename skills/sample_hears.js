@@ -500,7 +500,7 @@ controller.hears(['GymHuntrBot'], 'ambient', (bot, message) => {
 					var returned4 = body4.toString();
 					var address4 = returned4.substring(returned4.indexOf("formatted_address")+22,returned4.indexOf("geometry")-13);
 					var callout4 = "Sponsored Raid is located at *"+portal4+"* gym \n*"+raidMon4+"*  Raid will end in approx:  *"+endTime4+"*\nThe nearest street address is:  *"+address4+"*  \nYou can Waze to it using: "+'http://waze.to/?ll='+coords4+"&navigate=yes"+"  \nor Google Maps:  "+'http://www.google.com/maps/place/'+coords4;
-					if (coords4 == "30.00526,-90.17554" || coords4 == "30.00415,-90.10547" || coords4 == "29.95370,-90.06924" || coords4 == "29.94976,-90.06984" || coords4 == "29.89542,-90.06016") {
+					if (coords4 == "30.00526,-90.17554" || coords4 == "30.00415,-90.10547" || coords4 == "29.953703,-90.069243" || coords4 == "29.94976,-90.06984" || coords4 == "29.89542,-90.06016") {
 						bot.say({
 						text: callout4,
 						channel: "raid-battles-spons"
