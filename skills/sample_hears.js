@@ -525,7 +525,7 @@ controller.hears(['GymHuntrBot'], 'ambient', (bot, message) => {
 				"path": "/maps/api/geocode/json?latlng="+coords4+"&sensor=true_or_false",
 				"headers": {}
 			};
-			var req4 = http.request(options, function (res) {
+			var req4 = http.request(options4, function (res) {
 				var chunks = [];
 
 				res.on("data", function (chunk) {
