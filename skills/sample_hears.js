@@ -279,7 +279,12 @@ controller.hears(['embed: A wild'], 'ambient', (bot, message) => {
 						text: callout3,
 						channel: "rarepoke-machop"
 					});
-					//post all others into rarespawn channel
+					} else if (poke3 == "Farfetch'd"){
+						bot.say({
+						text: callout3,
+						channel: "rarepoke-Farfetchd"
+					});
+					//post all others into rarespawn channel Farfetch'd
 					} else {
 						bot.say({
 						text: callout3,
