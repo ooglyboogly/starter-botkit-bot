@@ -341,7 +341,7 @@ controller.hears(['embed: A wild'], 'ambient', (bot, message) => {
 
 
 //Legendary detection and post to callout channel
-controller.hears(['Articuno','Lugia','Moltres','Zapdos','Mewtwo','Raikou','Suicune ','Entei','Ho-Oh'], 'ambient', (bot, message) => {
+controller.hears(['Articuno','Lugia','Moltres','Zapdos','Mewtwo','Raikou','Suicune ','Entei','Ho-Oh',"Groudon"], 'ambient', (bot, message) => {
 	var whodisid2 = 'empty'
 	var whodis2 = 'empty'
 	var whochannel2 = 'empty'
